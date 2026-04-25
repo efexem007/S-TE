@@ -107,21 +107,6 @@ export default function Hero({ lang = 'tr' }: { lang?: string }) {
           </a>
         </div>
 
-        {/* Stats */}
-        <div className="hero-fade-up mt-16 grid grid-cols-3 gap-8 max-w-lg mx-auto">
-          <div className="text-center">
-            <p className="text-2xl md:text-3xl font-bold text-gradient">500+</p>
-            <p className="text-text-light/50 text-xs mt-1">{isTr ? 'Mezun' : 'Graduates'}</p>
-          </div>
-          <div className="text-center">
-            <p className="text-2xl md:text-3xl font-bold text-gradient">50+</p>
-            <p className="text-text-light/50 text-xs mt-1">{isTr ? 'Eğitim' : 'Programs'}</p>
-          </div>
-          <div className="text-center">
-            <p className="text-2xl md:text-3xl font-bold text-gradient">98%</p>
-            <p className="text-text-light/50 text-xs mt-1">{isTr ? 'Memnuniyet' : 'Satisfaction'}</p>
-          </div>
-        </div>
       </div>
 
       {/* Scroll indicator */}
