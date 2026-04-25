@@ -26,6 +26,8 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
+import { AuthProvider } from '@/components/providers/AuthProvider';
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="tr" className={`${inter.variable}`}>
@@ -42,7 +44,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           Ana içeriğe geç
         </a>
-        {children}
+        <AuthProvider>
+          {children}
+        </AuthProvider>
       </body>
     </html>
   );

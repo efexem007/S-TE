@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X, MessageCircle } from 'lucide-react';
+import { Menu, X, MessageCircle, LogIn, LogOut, LayoutDashboard } from 'lucide-react';
+import { useAuth } from '@/components/providers/AuthProvider';
 import { cn } from '@/lib/utils';
 
 const navLinks = [
@@ -22,6 +23,7 @@ function scrollToId(id: string) {
 export default function Navbar({ lang = 'tr' }: { lang?: string }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { user, isAuthenticated, logout } = useAuth();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -30,6 +32,14 @@ export default function Navbar({ lang = 'tr' }: { lang?: string }) {
   }, []);
 
   const isTr = lang === 'tr';
+
+  const dashboardLink = user
+    ? user.role === 'admin'
+      ? '/admin'
+      : user.role === 'coach'
+      ? '/coach'
+      : '/student'
+    : '/login';
 
   return (
     <nav
@@ -82,12 +92,26 @@ export default function Navbar({ lang = 'tr' }: { lang?: string }) {
           >
             <MessageCircle className="w-5 h-5" />
           </a>
-          <button 
-            onClick={() => scrollToId('contact')}
-            className="px-5 py-2.5 bg-gradient-accent text-bg-darkest text-sm font-semibold rounded-full hover:shadow-glow-cyan transition-all duration-300 border-none cursor-pointer"
-          >
-            {isTr ? 'Başvuru Yap' : 'Apply Now'}
-          </button>
+          {isAuthenticated ? (
+            <>
+              <Link href={dashboardLink}
+                className="p-2.5 rounded-full glass text-accent-cyan hover:bg-accent-cyan/10 transition-all duration-300"
+                aria-label="Panel">
+                <LayoutDashboard className="w-5 h-5" />
+              </Link>
+              <button onClick={logout}
+                className="p-2.5 rounded-full glass text-accent-rose hover:bg-accent-rose/10 transition-all duration-300 border-none cursor-pointer"
+                aria-label="Çıkış Yap">
+                <LogOut className="w-5 h-5" />
+              </button>
+            </>
+          ) : (
+            <Link href="/login"
+              className="px-5 py-2.5 bg-gradient-accent text-bg-darkest text-sm font-semibold rounded-full hover:shadow-glow-cyan transition-all duration-300 inline-flex items-center gap-2">
+              <LogIn className="w-4 h-4" />
+              {isTr ? 'Giriş Yap' : 'Login'}
+            </Link>
+          )}
         </div>
 
         <div className="md:hidden">
