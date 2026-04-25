@@ -76,7 +76,7 @@ export default function Navbar({ lang = 'tr' }: { lang?: string }) {
             href="#contact" 
             className="px-5 py-2.5 bg-gradient-accent text-bg-darkest text-sm font-semibold rounded-full hover:shadow-glow-cyan transition-all duration-300"
           >
-            {isTr ? 'Randevu Al' : 'Book Now'}
+            {isTr ? 'Başvuru Yap' : 'Apply Now'}
           </Link>
         </div>
 
@@ -122,7 +122,7 @@ export default function Navbar({ lang = 'tr' }: { lang?: string }) {
             onClick={() => setMobileOpen(false)} 
             className="block py-3 px-4 bg-gradient-accent text-bg-darkest text-center rounded-full font-semibold hover:shadow-glow-cyan transition-all duration-300 mt-2"
           >
-            {isTr ? 'Randevu Al' : 'Book Now'}
+            {isTr ? 'Başvuru Yap' : 'Apply Now'}
           </Link>
         </div>
       </div>
