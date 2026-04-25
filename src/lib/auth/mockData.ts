@@ -156,7 +156,6 @@ export const MOCK_STUDENT_PROFILES: Record<string, StudentProfile> = {
     streakDays: 12,
     packageType: 'pro',
     startDate: '2026-01-01',
-    parentEmail: 'veli1@email.com',
     notes: [
       '2026-04-20: TYT Matematik netleri istikrarlı artıyor. Geometriye daha fazla zaman ayırmalı.',
       '2026-04-15: Motivasyon seansı sonrası çalışma saatleri %20 arttı.',
@@ -231,7 +230,6 @@ export const MOCK_STUDENT_PROFILES: Record<string, StudentProfile> = {
     streakDays: 24,
     packageType: 'enterprise',
     startDate: '2025-09-01',
-    parentEmail: 'veli2@email.com',
     notes: [
       '2026-04-22: Çok başarılı öğrenci. AYT netlerini 85+ çıkarması hedefleniyor.',
     ],

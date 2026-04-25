@@ -78,7 +78,6 @@ export interface StudentProfile extends User {
   streakDays: number;
   packageType: 'basic' | 'pro' | 'enterprise';
   startDate: string;
-  parentEmail?: string;
   notes: string[];
 }
 

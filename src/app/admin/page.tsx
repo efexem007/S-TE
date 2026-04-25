@@ -360,7 +360,6 @@ export default function AdminPage() {
               { label: 'Fiyatlandırma Ayarları', desc: 'Paket fiyatlarını ve özellikleri düzenle', icon: DollarSign, color: 'text-accent-rose' },
               { label: 'İçerik Yönetimi', desc: 'Blog yazıları, quiz ve SSS güncelle', icon: BookOpen, color: 'text-accent-cyan' },
               { label: 'Site Ayarları', desc: 'İletişim bilgileri ve sosyal medya', icon: Settings, color: 'text-accent-violet' },
-              { label: 'Veli Paneli Erişimi', desc: 'Veli görüntüleme izinlerini yönet', icon: Users, color: 'text-green-400' },
             ].map((item) => {
               const Icon = item.icon;
               return (
