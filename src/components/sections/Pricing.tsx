@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Check, Sparkles, ShieldCheck, RefreshCw } from 'lucide-react';
+import { Check, Sparkles, Gift, RefreshCw } from 'lucide-react';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
 import { useTilt } from '@/hooks/useTilt';
 
@@ -120,9 +120,9 @@ export default function Pricing({ lang = 'tr' }: { lang?: string }) {
         {/* Guarantee badges inspired by kantakademi.com */}
         <div className="mt-16 flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10">
           <div className="flex items-center gap-3 glass rounded-full px-6 py-3">
-            <ShieldCheck className="w-5 h-5 text-accent-cyan" />
+            <Gift className="w-5 h-5 text-accent-cyan" />
             <span className="text-text-light/80 text-sm">
-              {isTr ? '7 Gün Koşulsuz İade Garantisi' : '7-Day Unconditional Refund'}
+              {isTr ? '2 Ücretsiz Deneme Dersi' : '2 Free Trial Sessions'}
             </span>
           </div>
           <div className="flex items-center gap-3 glass rounded-full px-6 py-3">
