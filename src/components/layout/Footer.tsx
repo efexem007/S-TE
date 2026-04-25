@@ -1,6 +1,11 @@
 import Link from 'next/link';
 import { Instagram, Linkedin, Twitter } from 'lucide-react';
 
+function scrollToId(id: string) {
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
 export default function Footer({ lang = 'tr' }: { lang?: string }) {
   const isTr = lang === 'tr';
 
@@ -25,10 +30,10 @@ export default function Footer({ lang = 'tr' }: { lang?: string }) {
               {isTr ? 'Hızlı Bağlantılar' : 'Quick Links'}
             </h3>
             <div className="flex flex-col gap-3">
-              <Link href="#about" className="text-text-light/60 hover:text-accent-cyan transition-colors text-sm">{isTr ? 'Hakkımızda' : 'About'}</Link>
-              <Link href="#services" className="text-text-light/60 hover:text-accent-cyan transition-colors text-sm">{isTr ? 'Hizmetler' : 'Services'}</Link>
-              <Link href="#coaches" className="text-text-light/60 hover:text-accent-cyan transition-colors text-sm">{isTr ? 'Koçlar' : 'Coaches'}</Link>
-              <Link href="#contact" className="text-text-light/60 hover:text-accent-cyan transition-colors text-sm">{isTr ? 'İletişim' : 'Contact'}</Link>
+              <button onClick={() => scrollToId('about')} className="text-left text-text-light/60 hover:text-accent-cyan transition-colors text-sm bg-transparent border-none cursor-pointer">{isTr ? 'Hakkımızda' : 'About'}</button>
+              <button onClick={() => scrollToId('services')} className="text-left text-text-light/60 hover:text-accent-cyan transition-colors text-sm bg-transparent border-none cursor-pointer">{isTr ? 'Hizmetler' : 'Services'}</button>
+              <button onClick={() => scrollToId('coaches')} className="text-left text-text-light/60 hover:text-accent-cyan transition-colors text-sm bg-transparent border-none cursor-pointer">{isTr ? 'Koçlar' : 'Coaches'}</button>
+              <button onClick={() => scrollToId('contact')} className="text-left text-text-light/60 hover:text-accent-cyan transition-colors text-sm bg-transparent border-none cursor-pointer">{isTr ? 'İletişim' : 'Contact'}</button>
             </div>
           </div>
 
@@ -73,8 +78,8 @@ export default function Footer({ lang = 'tr' }: { lang?: string }) {
             &copy; {new Date().getFullYear()} dueMWeWork. {isTr ? 'Tüm hakları saklıdır.' : 'All rights reserved.'}
           </p>
           <div className="flex gap-6 text-sm text-text-light/40">
-            <Link href="#" className="hover:text-accent-cyan transition-colors">{isTr ? 'Gizlilik Politikası' : 'Privacy Policy'}</Link>
-            <Link href="#" className="hover:text-accent-cyan transition-colors">{isTr ? 'Kullanım Koşulları' : 'Terms of Use'}</Link>
+            <button onClick={() => alert(isTr ? 'Gizlilik Politikası yakında yayınlanacak.' : 'Privacy Policy coming soon.')} className="hover:text-accent-cyan transition-colors bg-transparent border-none cursor-pointer">{isTr ? 'Gizlilik Politikası' : 'Privacy Policy'}</button>
+            <button onClick={() => alert(isTr ? 'Kullanım Koşulları yakında yayınlanacak.' : 'Terms of Use coming soon.')} className="hover:text-accent-cyan transition-colors bg-transparent border-none cursor-pointer">{isTr ? 'Kullanım Koşulları' : 'Terms of Use'}</button>
           </div>
         </div>
       </div>

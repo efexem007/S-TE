@@ -5,7 +5,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
   Users, BookOpen, Briefcase, UserCheck, GitBranch,
-  MessageSquare, Tag, HelpCircle, Mail, ArrowRight
+  MessageSquare, Tag, HelpCircle, Mail, Zap, ArrowRight
 } from 'lucide-react';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
 
@@ -19,6 +19,7 @@ const sections = [
   { id: 'pricing', label: 'Fiyatlandırma', labelEn: 'Pricing', desc: 'Size uygun planı seçin', descEn: 'Choose your plan', icon: Tag, gradient: 'from-accent-cyan/20 to-accent-violet/20' },
   { id: 'faq', label: 'SSS', labelEn: 'FAQ', desc: 'Merak ettiklerinizin cevabı', descEn: 'Answers to your questions', icon: HelpCircle, gradient: 'from-accent-violet/20 to-accent-rose/20' },
   { id: 'contact', label: 'İletişim', labelEn: 'Contact', desc: 'Hedeflerinize ilk adım', descEn: 'First step to your goals', icon: Mail, gradient: 'from-accent-rose/20 to-accent-cyan/20' },
+  { id: 'quizzes', label: 'Online Quiz', labelEn: 'Online Quiz', desc: 'Kendini test et', descEn: 'Test yourself', icon: Zap, gradient: 'from-accent-cyan/20 to-accent-rose/20' },
 ];
 
 export default function QuickLinks({ lang = 'tr' }: { lang?: string }) {

@@ -361,14 +361,19 @@ export default function Programs({ lang = 'tr' }: { lang?: string }) {
             </div>
 
             {/* CTA */}
-            <a
-              href="#contact"
-              onClick={() => setSelectedProgram(null)}
-              className="block w-full text-center py-4 bg-gradient-accent text-bg-darkest font-semibold rounded-full hover:shadow-glow-cyan transition-all"
+            <button
+              onClick={() => {
+                setSelectedProgram(null);
+                setTimeout(() => {
+                  const el = document.getElementById('contact');
+                  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 150);
+              }}
+              className="block w-full text-center py-4 bg-gradient-accent text-bg-darkest font-semibold rounded-full hover:shadow-glow-cyan transition-all border-none cursor-pointer"
             >
               <Award className="w-4 h-4 inline mr-2" />
               {isTr ? 'Bu Programa Başvur' : 'Apply for This Program'}
-            </a>
+            </button>
           </div>
         )}
       </Modal>

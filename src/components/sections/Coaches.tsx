@@ -94,10 +94,18 @@ export default function Coaches({ lang = 'tr' }: { lang?: string }) {
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-bg-dark via-transparent to-transparent opacity-80" />
                 <div className="absolute bottom-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                  <button className="p-2 rounded-full glass text-text-light/70 hover:text-accent-cyan transition-colors">
+                  <button
+                    onClick={() => alert(isTr ? 'LinkedIn profili yakında eklenecek!' : 'LinkedIn profile coming soon!')}
+                    className="p-2 rounded-full glass text-text-light/70 hover:text-accent-cyan transition-colors"
+                    aria-label="LinkedIn"
+                  >
                     <Linkedin className="w-4 h-4" />
                   </button>
-                  <button className="p-2 rounded-full glass text-text-light/70 hover:text-accent-cyan transition-colors">
+                  <button
+                    onClick={() => alert(isTr ? 'Twitter profili yakında eklenecek!' : 'Twitter profile coming soon!')}
+                    className="p-2 rounded-full glass text-text-light/70 hover:text-accent-cyan transition-colors"
+                    aria-label="Twitter"
+                  >
                     <Twitter className="w-4 h-4" />
                   </button>
                 </div>

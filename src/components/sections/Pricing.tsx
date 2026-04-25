@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Check, Sparkles } from 'lucide-react';
+import { Check, Sparkles, ShieldCheck, RefreshCw } from 'lucide-react';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
 import { useTilt } from '@/hooks/useTilt';
 
@@ -116,6 +116,22 @@ export default function Pricing({ lang = 'tr' }: { lang?: string }) {
             <PricingCard key={plan.id} plan={plan} isTr={isTr} />
           ))}
         </div>
+
+        {/* Guarantee badges inspired by kantakademi.com */}
+        <div className="mt-16 flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10">
+          <div className="flex items-center gap-3 glass rounded-full px-6 py-3">
+            <ShieldCheck className="w-5 h-5 text-accent-cyan" />
+            <span className="text-text-light/80 text-sm">
+              {isTr ? '7 Gün Koşulsuz İade Garantisi' : '7-Day Unconditional Refund'}
+            </span>
+          </div>
+          <div className="flex items-center gap-3 glass rounded-full px-6 py-3">
+            <RefreshCw className="w-5 h-5 text-accent-violet" />
+            <span className="text-text-light/80 text-sm">
+              {isTr ? 'Sınırsız Koç Değişimi' : 'Unlimited Coach Changes'}
+            </span>
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -158,16 +174,19 @@ function PricingCard({ plan, isTr }: { plan: typeof plans[0]; isTr: boolean }) {
                 ))}
               </ul>
 
-              <a
-                href="#contact"
-                className={`block w-full text-center py-3 rounded-full font-semibold transition-all duration-300 ${
+              <button
+                onClick={() => {
+                  const el = document.getElementById('contact');
+                  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }}
+                className={`block w-full text-center py-3 rounded-full font-semibold transition-all duration-300 border-none cursor-pointer ${
                   plan.popular
                     ? 'bg-gradient-accent text-bg-darkest hover:shadow-glow-cyan'
                     : 'border border-white/20 text-text-light hover:bg-white/10'
                 }`}
               >
                 {isTr ? 'Hemen Başla' : 'Get Started'}
-              </a>
+              </button>
             </div>
   );
 }

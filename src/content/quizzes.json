@@ -1,0 +1,291 @@
+[
+  {
+    "id": "tyt-matematik-temel",
+    "title": "TYT Matematik Temel Kavramlar",
+    "titleEn": "TYT Math Fundamentals",
+    "category": "TYT",
+    "categoryEn": "TYT",
+    "difficulty": "kolay",
+    "difficultyEn": "easy",
+    "description": "Sayı kavramı, basamak değeri ve basit işlemler.",
+    "descriptionEn": "Number concepts, place value and basic operations.",
+    "questions": [
+      {
+        "id": "q1",
+        "question": "Bir iş görüşmesinde ilk izlenim ne kadar sürede oluşur?",
+        "questionEn": "How long does it take to form a first impression in a job interview?",
+        "options": ["5 saniye", "30 saniye", "90 saniye", "5 dakika"],
+        "optionsEn": ["5 seconds", "30 seconds", "90 seconds", "5 minutes"],
+        "correct": 2,
+        "explanation": "Araştırmalar, bir iş görüşmesinde kararın yaklaşık %90'ının ilk 90 saniyede verildiğini gösteriyor.",
+        "explanationEn": "Research shows that about 90% of the decision in a job interview is made in the first 90 seconds."
+      },
+      {
+        "id": "q2",
+        "question": "Pomodoro tekniğinde bir çalışma seansı kaç dakikadır?",
+        "questionEn": "How many minutes is a work session in the Pomodoro technique?",
+        "options": ["15 dakika", "25 dakika", "45 dakika", "60 dakika"],
+        "optionsEn": ["15 minutes", "25 minutes", "45 minutes", "60 minutes"],
+        "correct": 1,
+        "explanation": "Pomodoro tekniğinde standart bir çalışma seansı 25 dakika, ardından 5 dakikalık kısa mola gelir.",
+        "explanationEn": "In the Pomodoro technique, a standard work session is 25 minutes, followed by a 5-minute short break."
+      },
+      {
+        "id": "q3",
+        "question": "Aktif dinlemede aşağıdaki davranışlardan hangisi doğrudur?",
+        "questionEn": "Which of the following behaviors is correct in active listening?",
+        "options": [
+          "Karşı taraf konuşurken telefona bakmak",
+          "Sürekli söz keserek kendi fikrini söylemek",
+          "Göz teması kurmak ve özetleyerek geri bildirim vermek",
+          "Sadece kendi düşüncelerini ifade etmek"
+        ],
+        "optionsEn": [
+          "Looking at the phone while the other person speaks",
+          "Constantly interrupting to express your own opinion",
+          "Making eye contact and giving feedback by summarizing",
+          "Only expressing your own thoughts"
+        ],
+        "correct": 2,
+        "explanation": "Aktif dinleme; göz teması, baş ile onaylama, karşı tarafın sözünü kesmeme ve özetleyerek geri bildirim verme becerisidir.",
+        "explanationEn": "Active listening involves eye contact, nodding, not interrupting, and giving feedback by summarizing."
+      },
+      {
+        "id": "q4",
+        "question": "SWOT analizinde 'T' harfi neyi temsil eder?",
+        "questionEn": "In SWOT analysis, what does the letter 'T' represent?",
+        "options": ["Güçlü Yönler", "Zayıf Yönler", "Fırsatlar", "Tehditler"],
+        "optionsEn": ["Strengths", "Weaknesses", "Opportunities", "Threats"],
+        "correct": 3,
+        "explanation": "SWOT: Strengths (Güçlü Yönler), Weaknesses (Zayıf Yönler), Opportunities (Fırsatlar), Threats (Tehditler).",
+        "explanationEn": "SWOT: Strengths, Weaknesses, Opportunities, Threats."
+      },
+      {
+        "id": "q5",
+        "question": "Bir sunumda slayt başına ideal kelime sayısı kaçtır?",
+        "questionEn": "What is the ideal word count per slide in a presentation?",
+        "options": ["10-20 kelime", "30-40 kelime", "80-100 kelime", "200+ kelime"],
+        "optionsEn": ["10-20 words", "30-40 words", "80-100 words", "200+ words"],
+        "correct": 1,
+        "explanation": "Etkili sunumlarda slayt başına 30-40 kelime idealdir. Az metin, daha fazla görsel ve net mesaj demektir.",
+        "explanationEn": "In effective presentations, 30-40 words per slide is ideal. Less text means more visuals and a clear message."
+      }
+    ]
+  },
+  {
+    "id": "liderlik-becerileri",
+    "title": "Liderlik ve Yöneticilik",
+    "titleEn": "Leadership & Management",
+    "category": "Kariyer",
+    "categoryEn": "Career",
+    "difficulty": "orta",
+    "difficultyEn": "medium",
+    "description": "Ekip yönetimi, motivasyon ve stratejik düşünme üzerine 5 soru.",
+    "descriptionEn": "5 questions on team management, motivation and strategic thinking.",
+    "questions": [
+      {
+        "id": "q1",
+        "question": "Değişim yönetiminde Kotter'ın 8 adımının ilk adımı nedir?",
+        "questionEn": "What is the first step in Kotter's 8-step change management model?",
+        "options": [
+          "Kısa vadeli zaferler yaratmak",
+          "Aciliyet duygusu yaratmak",
+          "Vizyon oluşturmak",
+          "Değişimi kurumsallaştırmak"
+        ],
+        "optionsEn": [
+          "Create short-term wins",
+          "Create a sense of urgency",
+          "Form a strategic vision",
+          "Institute change"
+        ],
+        "correct": 1,
+        "explanation": "Kotter'ın ilk adımı 'Aciliyet Duygusu Yaratmak'tır. Değişim için neden şimdi olması gerektiğini netleştirmek gerekir.",
+        "explanationEn": "Kotter's first step is 'Create a Sense of Urgency'. You need to clarify why change must happen now."
+      },
+      {
+        "id": "q2",
+        "question": "Hangi liderlik tarzı, çalışanların kendi kararlarını almasına en çok izin verir?",
+        "questionEn": "Which leadership style gives employees the most autonomy to make their own decisions?",
+        "options": ["Otokratik", "Demokratik", "Laissez-faire", "Transformational"],
+        "optionsEn": ["Autocratic", "Democratic", "Laissez-faire", "Transformational"],
+        "correct": 2,
+        "explanation": "Laissez-faire (Bırakınız yapsınlar) liderliği, ekip üyelerine minimum müdahale ve maksimum özgürlük tanır.",
+        "explanationEn": "Laissez-faire leadership provides minimum intervention and maximum freedom to team members."
+      },
+      {
+        "id": "q3",
+        "question": "Maslow'un ihtiyaçlar hiyerarşisinin en üst basamağı hangisidir?",
+        "questionEn": "What is the top level of Maslow's hierarchy of needs?",
+        "options": [
+          "Güvenlik ihtiyacı",
+          "Sosyal ihtiyaç",
+          "Saygınlık ihtiyacı",
+          "Kendini gerçekleştirme"
+        ],
+        "optionsEn": [
+          "Safety needs",
+          "Social needs",
+          "Esteem needs",
+          "Self-actualization"
+        ],
+        "correct": 3,
+        "explanation": "Maslow'un piramidinin en tepesinde 'Kendini Gerçekleştirme' vardır. Potansiyelin tam olarak kullanılması anlamına gelir.",
+        "explanationEn": "At the top of Maslow's pyramid is 'Self-actualization'. It means fully realizing one's potential."
+      },
+      {
+        "id": "q4",
+        "question": "Bir projede 'Kritik Yol' ne anlama gelir?",
+        "questionEn": "What does 'Critical Path' mean in a project?",
+        "options": [
+          "En pahalı iş paketleri",
+          "En uzun süren aktivite zinciri",
+          "En riskli görevler",
+          "En önemli paydaşlar"
+        ],
+        "optionsEn": [
+          "The most expensive work packages",
+          "The longest chain of dependent activities",
+          "The riskiest tasks",
+          "The most important stakeholders"
+        ],
+        "correct": 1,
+        "explanation": "Kritik yol, projenin tamamlanması için gerekli olan en uzun bağımlı aktivite zinciridir. Bu yoldaki herhangi bir gecikme tüm projeyi geciktirir.",
+        "explanationEn": "The critical path is the longest chain of dependent activities required to complete the project. Any delay here delays the entire project."
+      },
+      {
+        "id": "q5",
+        "question": "EQ (Duygusal Zeka) bileşenlerinden biri aşağıdakilerden hangisi DEĞİLDİR?",
+        "questionEn": "Which of the following is NOT a component of EQ (Emotional Intelligence)?",
+        "options": [
+          "Öz farkındalık",
+          "Öz düzenleme",
+          "Teknik analiz",
+          "Sosyal beceriler"
+        ],
+        "optionsEn": [
+          "Self-awareness",
+          "Self-regulation",
+          "Technical analysis",
+          "Social skills"
+        ],
+        "correct": 2,
+        "explanation": "EQ'nun 5 bileşeni: Öz farkındalık, Öz düzenleme, İç motivasyon, Empati, Sosyal beceriler. Teknik analiz EQ kapsamında değildir.",
+        "explanationEn": "The 5 components of EQ are: Self-awareness, Self-regulation, Internal motivation, Empathy, Social skills. Technical analysis is not part of EQ."
+      }
+    ]
+  },
+  {
+    "id": "dijital-donusum-ai",
+    "title": "Dijital Dönüşüm ve AI",
+    "titleEn": "Digital Transformation & AI",
+    "category": "Teknoloji",
+    "categoryEn": "Technology",
+    "difficulty": "ileri",
+    "difficultyEn": "advanced",
+    "description": "Yapay zeka, prompt mühendisliği ve dijital strateji üzerine 5 soru.",
+    "descriptionEn": "5 questions on AI, prompt engineering and digital strategy.",
+    "questions": [
+      {
+        "id": "q1",
+        "question": "Prompt mühendisliğinde 'zero-shot' ne anlama gelir?",
+        "questionEn": "What does 'zero-shot' mean in prompt engineering?",
+        "options": [
+          "Hiç örnek vermeden direkt talimat vermek",
+          "Sadece bir örnek vermek",
+          "Çok sayıda örnek vermek",
+          "Rastgele komut vermek"
+        ],
+        "optionsEn": [
+          "Giving direct instructions without any examples",
+          "Providing only one example",
+          "Providing many examples",
+          "Giving random commands"
+        ],
+        "correct": 0,
+        "explanation": "Zero-shot prompting, modele herhangi bir örnek vermeden sadece talimatla görev yaptırmayı ifade eder.",
+        "explanationEn": "Zero-shot prompting means instructing the model to perform a task with just instructions, without any examples."
+      },
+      {
+        "id": "q2",
+        "question": "RAG (Retrieval-Augmented Generation) sisteminde 'retrieval' aşaması ne yapar?",
+        "questionEn": "What does the 'retrieval' stage do in a RAG system?",
+        "options": [
+          "Görsel üretir",
+          "Harici veri kaynağından ilgili bilgiyi çeker",
+          "Modeli eğitir",
+          "Ses dosyası oluşturur"
+        ],
+        "optionsEn": [
+          "Generates images",
+          "Fetches relevant information from an external data source",
+          "Trains the model",
+          "Creates audio files"
+        ],
+        "correct": 1,
+        "explanation": "RAG'de retrieval, kullanıcı sorusuna en uygun belgeleri vektör veritabanından veya bilgi tabanından çekme aşamasıdır.",
+        "explanationEn": "In RAG, retrieval is the stage that fetches the most relevant documents from a vector database or knowledge base based on the user query."
+      },
+      {
+        "id": "q3",
+        "question": "Bir iş sürecini otomatize ederken ilk adım ne olmalıdır?",
+        "questionEn": "What should be the first step when automating a business process?",
+        "options": [
+          "Hemen yazılım satın almak",
+          "Mevcut süreci haritalamak ve darboğazları tespit etmek",
+          "Tüm çalışanları işten çıkarmak",
+          "Rastgele bir araç denemek"
+        ],
+        "optionsEn": [
+          "Buy software immediately",
+          "Map the current process and identify bottlenecks",
+          "Lay off all employees",
+          "Try a random tool"
+        ],
+        "correct": 1,
+        "explanation": "Otomasyon öncesi mevcut sürecin analiz edilmesi, verimsizliklerin ve darboğazların tespit edilmesi gerekir. Aksi halde kötü süreç daha hızlı kötü olur.",
+        "explanationEn": "Before automation, the current process must be analyzed and inefficiencies/bottlenecks identified. Otherwise, a bad process just becomes faster at being bad."
+      },
+      {
+        "id": "q4",
+        "question": "AI etiğinde 'black box' problemi neyi ifade eder?",
+        "questionEn": "What does the 'black box' problem refer to in AI ethics?",
+        "options": [
+          "Fiziksel sunucu kasası",
+          "Modelin kararlarını açıklayamama durumu",
+          "Ekran kararması",
+          "Veri kaybı"
+        ],
+        "optionsEn": [
+          "Physical server case",
+          "The inability to explain model decisions",
+          "Screen blackout",
+          "Data loss"
+        ],
+        "correct": 1,
+        "explanation": "Black box problemi, özellikle derin öğrenme modellerinde, modelin neden böyle bir karar verdiğinin insanlar tarafından anlaşılamamasıdır.",
+        "explanationEn": "The black box problem refers to the inability of humans to understand why a model made a particular decision, especially in deep learning models."
+      },
+      {
+        "id": "q5",
+        "question": "Spaced Repetition (Aralıklı Tekrar) tekniğinde en uygun tekrar aralığı nedir?",
+        "questionEn": "What is the optimal review interval in the Spaced Repetition technique?",
+        "options": [
+          "Her gün aynı saatte",
+          "1 gün, 3 gün, 7 gün, 14 gün, 30 gün",
+          "Sadece sınavdan önce",
+          "Haftada bir kez"
+        ],
+        "optionsEn": [
+          "Every day at the same time",
+          "1 day, 3 days, 7 days, 14 days, 30 days",
+          "Only before the exam",
+          "Once a week"
+        ],
+        "correct": 1,
+        "explanation": "Aralıklı tekrar, unutma eğrisine karşı en etkili yöntemdir. Zamanla artan aralıklarla tekrar yapılması uzun vadeli öğrenmeyi sağlar.",
+        "explanationEn": "Spaced repetition is the most effective method against the forgetting curve. Increasing intervals over time enable long-term learning."
+      }
+    ]
+  }
+]

@@ -1,6 +1,7 @@
 import CookieBanner from '@/components/ui/CookieBanner';
 import ChatWidget from '@/components/ui/ChatWidget';
 import LenisProvider from '@/components/providers/LenisProvider';
+import { CoachProvider } from '@/components/providers/CoachProvider';
 
 export default function LangLayout({
   children,
@@ -8,10 +9,12 @@ export default function LangLayout({
   children: React.ReactNode;
 }) {
   return (
-    <LenisProvider>
-      <main id="main-content">{children}</main>
-      <CookieBanner />
-      <ChatWidget />
-    </LenisProvider>
+    <CoachProvider>
+      <LenisProvider>
+        <main id="main-content">{children}</main>
+        <CookieBanner />
+        <ChatWidget />
+      </LenisProvider>
+    </CoachProvider>
   );
 }

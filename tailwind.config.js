@@ -44,6 +44,7 @@ module.exports = {
         'pulse-cyan': 'pulseCyan 2s cubic-bezier(0.4,0,0.6,1) infinite',
         'float':      'float 6s ease-in-out infinite',
         'gradient-x': 'gradientX 6s ease infinite',
+        'scroll-x':   'scrollX 30s linear infinite',
       },
       keyframes: {
         fadeUp:     { from: { opacity: '0', transform: 'translateY(40px)' }, to: { opacity: '1', transform: 'translateY(0)' } },
@@ -51,6 +52,7 @@ module.exports = {
         pulseCyan:  { '0%,100%': { opacity: '1' }, '50%': { opacity: '.5' } },
         float:      { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-20px)' } },
         gradientX:  { '0%,100%': { backgroundPosition: '0% 50%' }, '50%': { backgroundPosition: '100% 50%' } },
+        scrollX:    { '0%': { transform: 'translateX(0)' }, '100%': { transform: 'translateX(-50%)' } },
       },
     },
   },

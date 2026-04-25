@@ -3,9 +3,14 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ChevronDown, Play } from 'lucide-react';
+import { ChevronDown, Play, Sparkles } from 'lucide-react';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
 import AuroraBackground from '@/components/effects/AuroraBackground';
+
+function scrollToId(id: string) {
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
 
 export default function Hero({ lang = 'tr' }: { lang?: string }) {
   const sectionRef = useRef<HTMLElement>(null);
@@ -65,6 +70,12 @@ export default function Hero({ lang = 'tr' }: { lang?: string }) {
       />
 
       <div className="relative z-20 max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        {/* Free consultation banner inspired by kantakademi.com */}
+        <div className="hero-fade-up inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent-rose/10 border border-accent-rose/30 text-sm text-accent-rose mb-4">
+          <Sparkles className="w-4 h-4" />
+          {isTr ? '2 Ücretsiz Görüşme Hakkın Var!' : '2 Free Consultation Sessions!'}
+        </div>
+
         <div className="hero-fade-up inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-accent-cyan mb-8">
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-cyan opacity-75" />
@@ -86,25 +97,45 @@ export default function Hero({ lang = 'tr' }: { lang?: string }) {
             </>
           )}
         </h1>
+
+        {/* Motivational slogan inspired by wwakademi.com */}
+        <div className="hero-fade-up mb-8">
+          <p className="text-xl md:text-2xl lg:text-3xl font-light text-white/90 italic tracking-wide">
+            {isTr ? (
+              <>
+                <Sparkles className="inline w-6 h-6 text-accent-cyan mr-2 -mt-1" />
+                Yıldızları hedef al, hayallerinin ötesine git
+                <Sparkles className="inline w-6 h-6 text-accent-cyan ml-2 -mt-1" />
+              </>
+            ) : (
+              <>
+                <Sparkles className="inline w-6 h-6 text-accent-cyan mr-2 -mt-1" />
+                Aim for the stars, go beyond your dreams
+                <Sparkles className="inline w-6 h-6 text-accent-cyan ml-2 -mt-1" />
+              </>
+            )}
+          </p>
+        </div>
+
         <p className="hero-fade-up text-lg md:text-xl text-text-light/70 max-w-2xl mx-auto mb-10 leading-relaxed">
           {isTr
             ? 'Profesyonel koçluk ve eğitim hizmetleriyle kariyerinizi ve yaşamınızı dönüştürün. Geleceğin yetkinliklerini bugünden kazanın.'
             : 'Transform your career and life with professional coaching and training. Acquire future skills starting today.'}
         </p>
         <div className="hero-fade-up flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <a
-            href="#contact"
-            className="px-8 py-4 bg-gradient-accent text-bg-darkest font-semibold rounded-full hover:shadow-glow-cyan transition-all duration-300 text-base"
+          <button
+            onClick={() => scrollToId('contact')}
+            className="px-8 py-4 bg-gradient-accent text-bg-darkest font-semibold rounded-full hover:shadow-glow-cyan transition-all duration-300 text-base border-none cursor-pointer"
           >
             {isTr ? 'Hemen Başlayın' : 'Get Started'}
-          </a>
-          <a
-            href="#services"
-            className="px-8 py-4 glass text-text-light font-medium rounded-full hover:bg-white/10 transition-all duration-300 text-base inline-flex items-center gap-2"
+          </button>
+          <button
+            onClick={() => scrollToId('services')}
+            className="px-8 py-4 glass text-text-light font-medium rounded-full hover:bg-white/10 transition-all duration-300 text-base inline-flex items-center gap-2 border-none cursor-pointer"
           >
             <Play className="w-4 h-4" />
             {isTr ? 'Hizmetlerimizi Keşfedin' : 'Explore Services'}
-          </a>
+          </button>
         </div>
 
       </div>

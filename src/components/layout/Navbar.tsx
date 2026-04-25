@@ -2,15 +2,22 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, MessageCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const navLinks = [
-  { href: '#about', label: 'Hakkımızda', labelEn: 'About' },
-  { href: '#programs', label: 'Programlar', labelEn: 'Programs' },
-  { href: '#services', label: 'Hizmetler', labelEn: 'Services' },
-  { href: '#contact', label: 'İletişim', labelEn: 'Contact' },
+  { id: 'about', label: 'Hakkımızda', labelEn: 'About' },
+  { id: 'programs', label: 'Programlar', labelEn: 'Programs' },
+  { id: 'services', label: 'Hizmetler', labelEn: 'Services' },
+  { id: 'contact', label: 'İletişim', labelEn: 'Contact' },
 ];
+
+function scrollToId(id: string) {
+  const el = document.getElementById(id);
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
 
 export default function Navbar({ lang = 'tr' }: { lang?: string }) {
   const [scrolled, setScrolled] = useState(false);
@@ -47,14 +54,14 @@ export default function Navbar({ lang = 'tr' }: { lang?: string }) {
 
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <Link 
-              key={link.href} 
-              href={link.href} 
-              className="relative text-text-light/80 hover:text-accent-cyan transition-colors text-sm font-medium group py-2"
+            <button
+              key={link.id}
+              onClick={() => scrollToId(link.id)}
+              className="relative text-text-light/80 hover:text-accent-cyan transition-colors text-sm font-medium group py-2 bg-transparent border-none cursor-pointer"
             >
               {isTr ? link.label : link.labelEn}
               <span className="absolute bottom-0 left-0 h-0.5 bg-accent-cyan transition-all duration-300 w-0 group-hover:w-full" />
-            </Link>
+            </button>
           ))}
         </div>
 
@@ -66,12 +73,21 @@ export default function Navbar({ lang = 'tr' }: { lang?: string }) {
           >
             {isTr ? 'EN' : 'TR'}
           </Link>
-          <Link 
-            href="#contact" 
-            className="px-5 py-2.5 bg-gradient-accent text-bg-darkest text-sm font-semibold rounded-full hover:shadow-glow-cyan transition-all duration-300"
+          <a
+            href={`https://wa.me/905551234567?text=${encodeURIComponent(isTr ? 'Merhaba, koçluk hizmetleriniz hakkında bilgi almak istiyorum.' : 'Hello, I would like to get information about your coaching services.')}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-2.5 rounded-full bg-green-500/20 text-green-400 hover:bg-green-500/30 hover:text-green-300 transition-all duration-300"
+            aria-label={isTr ? 'WhatsApp ile iletişime geç' : 'Contact via WhatsApp'}
+          >
+            <MessageCircle className="w-5 h-5" />
+          </a>
+          <button 
+            onClick={() => scrollToId('contact')}
+            className="px-5 py-2.5 bg-gradient-accent text-bg-darkest text-sm font-semibold rounded-full hover:shadow-glow-cyan transition-all duration-300 border-none cursor-pointer"
           >
             {isTr ? 'Başvuru Yap' : 'Apply Now'}
-          </Link>
+          </button>
         </div>
 
         <div className="md:hidden">
@@ -96,14 +112,13 @@ export default function Navbar({ lang = 'tr' }: { lang?: string }) {
       >
         <div className="px-4 py-4 flex flex-col gap-2">
           {navLinks.map((link) => (
-            <Link 
-              key={link.href} 
-              href={link.href} 
-              onClick={() => setMobileOpen(false)} 
-              className="block py-3 px-4 text-text-light/90 hover:text-accent-cyan hover:bg-white/5 rounded-lg transition-colors text-base"
+            <button 
+              key={link.id}
+              onClick={() => { setMobileOpen(false); scrollToId(link.id); }}
+              className="block w-full text-left py-3 px-4 text-text-light/90 hover:text-accent-cyan hover:bg-white/5 rounded-lg transition-colors text-base bg-transparent border-none cursor-pointer"
             >
               {isTr ? link.label : link.labelEn}
-            </Link>
+            </button>
           ))}
           <Link 
             href={`/${lang === 'tr' ? 'en' : 'tr'}`} 
@@ -111,13 +126,12 @@ export default function Navbar({ lang = 'tr' }: { lang?: string }) {
           >
             {isTr ? 'English' : 'Türkçe'}
           </Link>
-          <Link 
-            href="#contact" 
-            onClick={() => setMobileOpen(false)} 
-            className="block py-3 px-4 bg-gradient-accent text-bg-darkest text-center rounded-full font-semibold hover:shadow-glow-cyan transition-all duration-300 mt-2"
+          <button 
+            onClick={() => { setMobileOpen(false); scrollToId('contact'); }}
+            className="block w-full py-3 px-4 bg-gradient-accent text-bg-darkest text-center rounded-full font-semibold hover:shadow-glow-cyan transition-all duration-300 mt-2 border-none cursor-pointer"
           >
             {isTr ? 'Başvuru Yap' : 'Apply Now'}
-          </Link>
+          </button>
         </div>
       </div>
     </nav>
