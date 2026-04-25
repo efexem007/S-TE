@@ -5,6 +5,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ChevronDown, Play } from 'lucide-react';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
+import AuroraBackground from '@/components/effects/AuroraBackground';
 
 export default function Hero({ lang = 'tr' }: { lang?: string }) {
   const sectionRef = useRef<HTMLElement>(null);
@@ -45,6 +46,9 @@ export default function Hero({ lang = 'tr' }: { lang?: string }) {
       aria-label="Hero bölümü"
       className="relative min-h-screen flex items-center justify-center bg-bg-darkest overflow-hidden"
     >
+      {/* Aurora background */}
+      <AuroraBackground className="absolute inset-0" />
+
       {/* Animated mesh gradient blobs */}
       <div className="absolute inset-0 bg-gradient-mesh opacity-60" />
       <div
@@ -60,7 +64,7 @@ export default function Hero({ lang = 'tr' }: { lang?: string }) {
         style={{ background: 'radial-gradient(circle, #F43F5E 0%, transparent 70%)', animationDelay: '4s' }}
       />
 
-      <div className="relative z-10 max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="relative z-20 max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="hero-fade-up inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-accent-cyan mb-8">
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-cyan opacity-75" />

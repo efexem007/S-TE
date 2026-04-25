@@ -5,6 +5,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
 import { Target, Users, Award, TrendingUp } from 'lucide-react';
+import TextReveal from '@/components/effects/TextReveal';
 
 const stats = [
   { icon: Users, value: '2.500+', label: 'Öğrenci', labelEn: 'Students' },
@@ -61,9 +62,14 @@ export default function About({ lang = 'tr' }: { lang?: string }) {
       <div className="relative z-10 max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
-            <h2 className="about-fade-up font-extrabold text-section text-white mb-6">
+            <TextReveal
+              tag="h2"
+              className="font-extrabold text-section text-white mb-6"
+              splitBy="words"
+              stagger={0.05}
+            >
               {isTr ? 'Hakkımızda' : 'About Us'}
-            </h2>
+            </TextReveal>
             <p className="about-fade-up text-accent-cyan font-semibold text-lg md:text-xl mb-6">
               {isTr ? 'Akdeniz\'in sıcaklığı, profesyonel disiplin' : 'Mediterranean warmth, professional discipline'}
             </p>

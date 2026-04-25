@@ -5,6 +5,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Check, Sparkles } from 'lucide-react';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
+import { useTilt } from '@/hooks/useTilt';
 
 const plans = [
   {
@@ -112,14 +113,27 @@ export default function Pricing({ lang = 'tr' }: { lang?: string }) {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
           {plans.map((plan) => (
-            <div
-              key={plan.id}
-              className={`pricing-card relative rounded-2xl p-8 transition-all duration-300 ${
-                plan.popular
-                  ? 'glass-strong border-accent-cyan/30 shadow-glow-cyan scale-105 z-10'
-                  : 'glass hover:bg-white/5'
-              }`}
-            >
+            <PricingCard key={plan.id} plan={plan} isTr={isTr} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function PricingCard({ plan, isTr }: { plan: typeof plans[0]; isTr: boolean }) {
+  const tiltRef = useTilt<HTMLDivElement>({ max: 8, scale: 1.02 });
+
+  return (
+    <div
+      ref={tiltRef}
+      className={`pricing-card relative rounded-2xl p-8 transition-all duration-300 ${
+        plan.popular
+          ? 'glass-strong border-accent-cyan/30 shadow-glow-cyan scale-105 z-10'
+          : 'glass hover:bg-white/5'
+      }`}
+      style={{ transformStyle: 'preserve-3d' }}
+    >
               {plan.popular && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-accent text-bg-darkest text-xs font-bold rounded-full flex items-center gap-1">
                   <Sparkles className="w-3 h-3" />
@@ -155,9 +169,5 @@ export default function Pricing({ lang = 'tr' }: { lang?: string }) {
                 {isTr ? 'Hemen Başla' : 'Get Started'}
               </a>
             </div>
-          ))}
-        </div>
-      </div>
-    </section>
   );
 }

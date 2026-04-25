@@ -5,6 +5,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { User, Building2, Monitor, Lightbulb, ArrowRight } from 'lucide-react';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
+import Spotlight from '@/components/effects/Spotlight';
 
 const iconMap = {
   User,
@@ -73,6 +74,7 @@ export default function Services({ lang = 'tr' }: { lang?: string }) {
   const isTr = lang === 'tr';
 
   return (
+    <Spotlight>
     <section
       ref={sectionRef}
       id="services"
@@ -119,5 +121,6 @@ export default function Services({ lang = 'tr' }: { lang?: string }) {
         </div>
       </div>
     </section>
+    </Spotlight>
   );
 }
