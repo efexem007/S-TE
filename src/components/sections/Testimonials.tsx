@@ -3,9 +3,8 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Star } from 'lucide-react';
+import { Star, Quote } from 'lucide-react';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
-import Card from '@/components/ui/Card';
 
 const testimonialsData = [
   {
@@ -13,8 +12,8 @@ const testimonialsData = [
     name: 'Elif Şahin',
     title: 'Pazarlama Müdürü',
     titleEn: 'Marketing Manager',
-    quote: 'DueM via Work sayesinde kariyerimde beklenmedik bir dönüşüm yaşadım. Koçluk seansları benim için çok değerliydi.',
-    quoteEn: 'Thanks to DueM via Work, I experienced an unexpected transformation in my career. The coaching sessions were invaluable.',
+    quote: 'dueMWeWork sayesinde kariyerimde beklenmedik bir dönüşüm yaşadım. Koçluk seansları benim için çok değerliydi.',
+    quoteEn: 'Thanks to dueMWeWork, I experienced an unexpected transformation in my career. The coaching sessions were invaluable.',
     rating: 5,
   },
   {
@@ -66,35 +65,47 @@ export default function Testimonials({ lang = 'tr' }: { lang?: string }) {
       ref={sectionRef}
       id="testimonials"
       aria-label={isTr ? 'Yorumlar' : 'Testimonials'}
-      className="bg-bg-cream py-24 md:py-32"
+      className="bg-bg-dark py-24 md:py-32"
     >
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="font-display text-section text-text-primary text-center mb-4">
-          {isTr ? 'Müşteri Yorumları' : 'Client Testimonials'}
-        </h2>
-        <p className="text-text-secondary text-center mb-16 max-w-2xl mx-auto">
-          {isTr ? 'Başarı hikayelerimizden ilham alın.' : 'Be inspired by our success stories.'}
-        </p>
+        <div className="text-center mb-16">
+          <h2 className="font-extrabold text-section text-white mb-4">
+            {isTr ? 'Müşteri Yorumları' : 'Client Testimonials'}
+          </h2>
+          <p className="text-text-light/60 max-w-2xl mx-auto">
+            {isTr ? 'Başarı hikayelerimizden ilham alın.' : 'Be inspired by our success stories.'}
+          </p>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {testimonialsData.map((testimonial) => (
-            <Card key={testimonial.id} className="testimonial-card" hover>
+            <div
+              key={testimonial.id}
+              className="testimonial-card glass rounded-2xl p-8 hover:bg-white/5 transition-all duration-300 relative"
+            >
+              <Quote className="w-10 h-10 text-accent-cyan/20 absolute top-6 right-6" />
+              
               {/* Stars */}
-              <div className="flex gap-1 mb-4" aria-label={`${testimonial.rating} üzerinden ${testimonial.rating} yıldız`}>
+              <div className="flex gap-1 mb-6" aria-label={`${testimonial.rating} üzerinden ${testimonial.rating} yıldız`}>
                 {Array.from({ length: testimonial.rating }).map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-accent-terra text-accent-terra" aria-hidden="true" />
+                  <Star key={i} className="w-5 h-5 fill-accent-cyan text-accent-cyan" aria-hidden="true" />
                 ))}
               </div>
 
-              <blockquote className="text-text-primary text-base leading-relaxed mb-6">
+              <blockquote className="text-text-light/80 text-base leading-relaxed mb-8">
                 "{isTr ? testimonial.quote : testimonial.quoteEn}"
               </blockquote>
 
-              <div className="border-t border-text-secondary/10 pt-4">
-                <p className="font-medium text-text-primary">{testimonial.name}</p>
-                <p className="text-text-secondary text-sm">{isTr ? testimonial.title : testimonial.titleEn}</p>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-gradient-accent flex items-center justify-center text-bg-darkest font-bold">
+                  {testimonial.name.charAt(0)}
+                </div>
+                <div>
+                  <p className="font-semibold text-white">{testimonial.name}</p>
+                  <p className="text-text-light/50 text-sm">{isTr ? testimonial.title : testimonial.titleEn}</p>
+                </div>
               </div>
-            </Card>
+            </div>
           ))}
         </div>
       </div>

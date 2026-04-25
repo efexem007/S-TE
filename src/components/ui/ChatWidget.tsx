@@ -60,10 +60,10 @@ export default function ChatWidget() {
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
       {open && (
-        <div className="mb-4 w-[360px] max-w-[90vw] h-[480px] rounded-2xl bg-bg-darkest border border-text-light/10 shadow-2xl flex flex-col overflow-hidden">
+        <div className="mb-4 w-[360px] max-w-[90vw] h-[480px] rounded-2xl bg-bg-darkest border border-white/10 shadow-2xl flex flex-col overflow-hidden">
           {/* Header */}
-          <div className="px-4 py-3 bg-bg-dark border-b border-text-light/10 flex items-center justify-between">
-            <span className="text-text-light font-medium">DueM Asistan</span>
+          <div className="px-4 py-3 glass border-b border-white/10 flex items-center justify-between">
+            <span className="text-text-light font-medium">dueMWeWork Asistan</span>
             <button
               onClick={() => setOpen(false)}
               aria-label="Sohbeti kapat"
@@ -83,8 +83,8 @@ export default function ChatWidget() {
                 <div
                   className={`max-w-[80%] px-4 py-2 rounded-xl text-sm ${
                     msg.role === 'user'
-                      ? 'bg-accent-teal text-white rounded-br-none'
-                      : 'bg-bg-dark text-text-light rounded-bl-none'
+                      ? 'bg-gradient-accent text-bg-darkest rounded-br-none'
+                      : 'bg-white/5 text-text-light border border-white/10 rounded-bl-none'
                   }`}
                 >
                   {msg.content}
@@ -93,17 +93,17 @@ export default function ChatWidget() {
             ))}
             {loading && (
               <div className="flex justify-start">
-                <div className="bg-bg-dark text-text-light px-4 py-2 rounded-xl rounded-bl-none text-sm">
-                  <span className="inline-block w-2 h-2 rounded-full bg-accent-teal animate-pulse-teal mr-1" />
-                  <span className="inline-block w-2 h-2 rounded-full bg-accent-teal animate-pulse-teal mr-1 animation-delay-150" />
-                  <span className="inline-block w-2 h-2 rounded-full bg-accent-teal animate-pulse-teal animation-delay-300" />
+                <div className="bg-white/5 text-text-light border border-white/10 px-4 py-2 rounded-xl rounded-bl-none text-sm">
+                  <span className="inline-block w-2 h-2 rounded-full bg-accent-cyan animate-pulse-cyan mr-1" />
+                  <span className="inline-block w-2 h-2 rounded-full bg-accent-cyan animate-pulse-cyan mr-1 animation-delay-150" />
+                  <span className="inline-block w-2 h-2 rounded-full bg-accent-cyan animate-pulse-cyan animation-delay-300" />
                 </div>
               </div>
             )}
           </div>
 
           {/* Input */}
-          <div className="px-4 py-3 border-t border-text-light/10 bg-bg-dark">
+          <div className="px-4 py-3 border-t border-white/10 glass">
             <div className="flex gap-2">
               <input
                 type="text"
@@ -113,13 +113,13 @@ export default function ChatWidget() {
                 maxLength={500}
                 placeholder="Mesajınızı yazın..."
                 aria-label="Mesajınızı yazın"
-                className="flex-1 px-3 py-2 rounded-lg bg-bg-darkest border border-text-light/20 text-text-light text-sm placeholder:text-text-light/40 focus:outline-none focus:ring-2 focus:ring-accent-teal focus:border-transparent"
+                className="flex-1 px-3 py-2 rounded-lg bg-white/5 border border-white/10 text-text-light text-sm placeholder:text-text-light/40 focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:border-transparent"
               />
               <button
                 onClick={send}
                 disabled={loading || !input.trim()}
                 aria-label="Gönder"
-                className="p-2 rounded-lg bg-accent-teal text-white hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
+                className="p-2 rounded-lg bg-gradient-accent text-bg-darkest hover:shadow-glow-cyan transition-all disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <Send className="w-4 h-4" />
               </button>
@@ -136,7 +136,7 @@ export default function ChatWidget() {
         onClick={() => setOpen(!open)}
         aria-label={open ? 'Sohbeti kapat' : 'Sohbeti aç'}
         aria-expanded={open}
-        className="w-14 h-14 rounded-full bg-accent-teal text-white shadow-lg hover:opacity-90 transition-opacity flex items-center justify-center"
+        className="w-14 h-14 rounded-full bg-gradient-accent text-bg-darkest shadow-lg hover:shadow-glow-cyan transition-all flex items-center justify-center"
       >
         {open ? <X className="w-6 h-6" /> : <MessageCircle className="w-6 h-6" />}
       </button>

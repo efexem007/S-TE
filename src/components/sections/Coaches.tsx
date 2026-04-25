@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
+import { Linkedin, Twitter } from 'lucide-react';
 
 const coachesData = [
   {
@@ -64,40 +65,51 @@ export default function Coaches({ lang = 'tr' }: { lang?: string }) {
       ref={sectionRef}
       id="coaches"
       aria-label={isTr ? 'Koçlar' : 'Coaches'}
-      className="bg-bg-dark-2 py-24 md:py-32"
+      className="bg-bg-dark py-24 md:py-32"
     >
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="font-display text-section text-text-light text-center mb-4">
-          {isTr ? 'Koçlarımız' : 'Our Coaches'}
-        </h2>
-        <p className="text-text-light/70 text-center mb-16 max-w-2xl mx-auto">
-          {isTr
-            ? 'Alanında uzman, sertifikalı profesyonel koçlarımızla tanışın.'
-            : 'Meet our certified, expert professional coaches.'}
-        </p>
+        <div className="text-center mb-16">
+          <h2 className="font-extrabold text-section text-white mb-4">
+            {isTr ? 'Koçlarımız' : 'Our Coaches'}
+          </h2>
+          <p className="text-text-light/60 max-w-2xl mx-auto">
+            {isTr
+              ? 'Alanında uzman, sertifikalı profesyonel koçlarımızla tanışın.'
+              : 'Meet our certified, expert professional coaches.'}
+          </p>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {coachesData.map((coach) => (
             <div
               key={coach.id}
-              className="coach-card group relative rounded-[16px] overflow-hidden bg-bg-dark shadow-card hover:shadow-card-hover transition-all duration-300"
+              className="coach-card group relative glass rounded-2xl overflow-hidden hover:bg-white/5 transition-all duration-300"
               role="article"
             >
-              <div className="aspect-[3/4] overflow-hidden">
-                <div className="w-full h-full bg-gradient-to-br from-accent-teal/20 to-accent-blue/20 flex items-center justify-center">
-                  <span className="text-text-light/30 text-6xl font-display">
+              <div className="aspect-[3/4] overflow-hidden relative">
+                <div className="w-full h-full bg-gradient-to-br from-accent-cyan/20 to-accent-violet/20 flex items-center justify-center">
+                  <span className="text-text-light/20 text-8xl font-extrabold">
                     {coach.name.charAt(0)}
                   </span>
                 </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-bg-dark via-transparent to-transparent opacity-80" />
+                <div className="absolute bottom-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <button className="p-2 rounded-full glass text-text-light/70 hover:text-accent-cyan transition-colors">
+                    <Linkedin className="w-4 h-4" />
+                  </button>
+                  <button className="p-2 rounded-full glass text-text-light/70 hover:text-accent-cyan transition-colors">
+                    <Twitter className="w-4 h-4" />
+                  </button>
+                </div>
               </div>
               <div className="p-6">
-                <h3 className="font-display text-xl font-semibold text-text-light mb-1">
+                <h3 className="font-semibold text-xl text-white mb-1">
                   {coach.name}
                 </h3>
-                <p className="text-accent-teal text-sm font-medium mb-3">
+                <p className="text-accent-cyan text-sm font-medium mb-3">
                   {isTr ? coach.title : coach.titleEn}
                 </p>
-                <p className="text-text-light/70 text-sm leading-relaxed">
+                <p className="text-text-light/60 text-sm leading-relaxed">
                   {isTr ? coach.bio : coach.bioEn}
                 </p>
               </div>

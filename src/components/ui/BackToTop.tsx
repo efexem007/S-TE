@@ -22,7 +22,7 @@ export default function BackToTop() {
     <button
       onClick={scrollToTop}
       aria-label="Sayfanın başına git"
-      className="fixed bottom-8 right-8 z-50 p-3 rounded-full bg-accent-teal text-white shadow-lg hover:opacity-90 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-teal focus-visible:ring-offset-2"
+      className="fixed bottom-8 right-24 z-50 p-3 rounded-full bg-gradient-accent text-bg-darkest shadow-lg hover:shadow-glow-cyan transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan focus-visible:ring-offset-2"
     >
       <ChevronUp className="w-6 h-6" />
     </button>

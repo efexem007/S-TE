@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
-import Button from '@/components/ui/Button';
+import { Send, Mail, MapPin, Phone } from 'lucide-react';
 
 export default function Contact({ lang = 'tr' }: { lang?: string }) {
   const sectionRef = useRef<HTMLElement>(null);
@@ -65,18 +65,50 @@ export default function Contact({ lang = 'tr' }: { lang?: string }) {
       ref={sectionRef}
       id="contact"
       aria-label={isTr ? 'İletişim' : 'Contact'}
-      className="bg-bg-dark py-24 md:py-32"
+      className="bg-bg-darkest py-24 md:py-32"
     >
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="contact-fade-up font-display text-section text-text-light mb-4">
-            {isTr ? 'Bizimle İletişime Geçin' : 'Get in Touch'}
-          </h2>
-          <p className="contact-fade-up text-text-light/70 mb-12">
-            {isTr ? 'Hedeflerinize ulaşmak için ilk adımı atın.' : 'Take the first step towards achieving your goals.'}
-          </p>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div>
+            <h2 className="contact-fade-up font-extrabold text-section text-white mb-4">
+              {isTr ? 'Bizimle İletişime Geçin' : 'Get in Touch'}
+            </h2>
+            <p className="contact-fade-up text-text-light/60 mb-12">
+              {isTr ? 'Hedeflerinize ulaşmak için ilk adımı atın.' : 'Take the first step towards achieving your goals.'}
+            </p>
 
-          <form onSubmit={handleSubmit} className="contact-fade-up space-y-6 text-left">
+            <div className="space-y-6">
+              <div className="contact-fade-up flex items-center gap-4">
+                <div className="w-12 h-12 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 flex items-center justify-center">
+                  <Mail className="w-5 h-5 text-accent-cyan" />
+                </div>
+                <div>
+                  <p className="text-sm text-text-light/50">{isTr ? 'E-posta' : 'Email'}</p>
+                  <p className="text-white">info@duemwework.com</p>
+                </div>
+              </div>
+              <div className="contact-fade-up flex items-center gap-4">
+                <div className="w-12 h-12 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 flex items-center justify-center">
+                  <Phone className="w-5 h-5 text-accent-cyan" />
+                </div>
+                <div>
+                  <p className="text-sm text-text-light/50">{isTr ? 'Telefon' : 'Phone'}</p>
+                  <p className="text-white">+90 555 123 45 67</p>
+                </div>
+              </div>
+              <div className="contact-fade-up flex items-center gap-4">
+                <div className="w-12 h-12 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 flex items-center justify-center">
+                  <MapPin className="w-5 h-5 text-accent-cyan" />
+                </div>
+                <div>
+                  <p className="text-sm text-text-light/50">{isTr ? 'Adres' : 'Address'}</p>
+                  <p className="text-white">İstanbul, Türkiye</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <form onSubmit={handleSubmit} className="contact-fade-up glass rounded-2xl p-8 space-y-6">
             {/* Honeypot - hidden from users, bots will fill it */}
             <input
               type="text"
@@ -89,7 +121,7 @@ export default function Contact({ lang = 'tr' }: { lang?: string }) {
 
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-text-light mb-2">
-                {isTr ? 'İsim' : 'Name'} <span aria-hidden="true">*</span>
+                {isTr ? 'İsim' : 'Name'} <span aria-hidden="true" className="text-accent-rose">*</span>
               </label>
               <input
                 type="text"
@@ -97,14 +129,14 @@ export default function Contact({ lang = 'tr' }: { lang?: string }) {
                 name="name"
                 required
                 aria-required="true"
-                className="w-full px-4 py-3 rounded-lg bg-bg-darkest border border-text-light/20 text-text-light placeholder:text-text-light/40 focus:outline-none focus:ring-2 focus:ring-accent-teal focus:border-transparent transition-all"
+                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-text-light placeholder:text-text-light/30 focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:border-transparent transition-all"
                 placeholder={isTr ? 'Adınız Soyadınız' : 'Your Full Name'}
               />
             </div>
 
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-text-light mb-2">
-                {isTr ? 'E-posta' : 'Email'} <span aria-hidden="true">*</span>
+                {isTr ? 'E-posta' : 'Email'} <span aria-hidden="true" className="text-accent-rose">*</span>
               </label>
               <input
                 type="email"
@@ -112,14 +144,14 @@ export default function Contact({ lang = 'tr' }: { lang?: string }) {
                 name="email"
                 required
                 aria-required="true"
-                className="w-full px-4 py-3 rounded-lg bg-bg-darkest border border-text-light/20 text-text-light placeholder:text-text-light/40 focus:outline-none focus:ring-2 focus:ring-accent-teal focus:border-transparent transition-all"
+                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-text-light placeholder:text-text-light/30 focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:border-transparent transition-all"
                 placeholder={isTr ? 'ornek@email.com' : 'example@email.com'}
               />
             </div>
 
             <div>
               <label htmlFor="message" className="block text-sm font-medium text-text-light mb-2">
-                {isTr ? 'Mesaj' : 'Message'} <span aria-hidden="true">*</span>
+                {isTr ? 'Mesaj' : 'Message'} <span aria-hidden="true" className="text-accent-rose">*</span>
               </label>
               <textarea
                 id="message"
@@ -127,32 +159,32 @@ export default function Contact({ lang = 'tr' }: { lang?: string }) {
                 required
                 aria-required="true"
                 rows={5}
-                className="w-full px-4 py-3 rounded-lg bg-bg-darkest border border-text-light/20 text-text-light placeholder:text-text-light/40 focus:outline-none focus:ring-2 focus:ring-accent-teal focus:border-transparent transition-all resize-none"
+                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-text-light placeholder:text-text-light/30 focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:border-transparent transition-all resize-none"
                 placeholder={isTr ? 'Mesajınızı yazın...' : 'Write your message...'}
               />
             </div>
 
             <div className="text-center">
-              <Button
+              <button
                 type="submit"
-                variant="primary"
-                size="lg"
                 disabled={formState === 'submitting'}
                 aria-label={isTr ? 'Formu gönder' : 'Submit form'}
+                className="w-full px-8 py-4 bg-gradient-accent text-bg-darkest font-semibold rounded-full hover:shadow-glow-cyan transition-all duration-300 disabled:opacity-50 inline-flex items-center justify-center gap-2"
               >
+                <Send className="w-4 h-4" />
                 {formState === 'submitting'
                   ? (isTr ? 'Gönderiliyor...' : 'Sending...')
                   : (isTr ? 'Gönder' : 'Send')}
-              </Button>
+              </button>
             </div>
 
             {formState === 'success' && (
-              <p role="alert" className="text-accent-teal text-center">
+              <p role="alert" className="text-accent-cyan text-center">
                 {isTr ? 'Mesajınız başarıyla gönderildi!' : 'Your message has been sent successfully!'}
               </p>
             )}
             {formState === 'error' && (
-              <p role="alert" className="text-accent-terra text-center">
+              <p role="alert" className="text-accent-rose text-center">
                 {isTr ? 'Bir hata oluştu. Lütfen tekrar deneyin.' : 'An error occurred. Please try again.'}
               </p>
             )}
