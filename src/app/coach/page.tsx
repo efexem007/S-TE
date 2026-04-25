@@ -6,8 +6,7 @@ import { useAuth } from '@/components/providers/AuthProvider';
 import {
   Users, Calendar, MessageCircle, TrendingUp, UserCheck,
   BookOpen, Clock, ArrowRight, Star, GraduationCap, Target,
-  CheckCircle2, Circle, BarChart3, FileText,
-  Send, ChevronRight, Flame, Award, StickyNote
+  CheckCircle2, Send, ChevronRight, Award, StickyNote
 } from 'lucide-react';
 import {
   getCoachProfile, getStudentsByCoach, getSessionsByCoach, getCoachRatings

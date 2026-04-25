@@ -6,12 +6,11 @@ import { useAuth } from '@/components/providers/AuthProvider';
 import {
   Users, DollarSign, BookOpen, Settings, Shield,
   TrendingUp, ArrowRight, Mail, Phone, CheckCircle2, XCircle,
-  Star, GraduationCap, Target, Clock, Package, BarChart3,
-  AlertCircle, ChevronDown, ChevronUp, Search, Filter
+  Star, GraduationCap, Target, Clock, BarChart3,
+  AlertCircle, ChevronDown, ChevronUp, Search
 } from 'lucide-react';
 import {
-  getAllStudents, getAllCoaches, getPendingApplications,
-  MOCK_APPLICATIONS, MOCK_COACH_PROFILES
+  getAllStudents, getAllCoaches, getPendingApplications
 } from '@/lib/auth/mockData';
 import type { Application } from '@/lib/auth/types';
 

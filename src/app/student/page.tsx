@@ -6,20 +6,20 @@ import { useAuth } from '@/components/providers/AuthProvider';
 import {
   GraduationCap, Target, TrendingUp, Clock, BookOpen,
   Calendar, Award, Flame, ChevronRight, CheckCircle2, Circle,
-  Star, MessageCircle, Zap, BarChart3, BrainCircuit, ArrowUpRight,
-  ArrowDownRight, Minus, Send, FileText, Play, Lightbulb,
-  Map, LayoutList, ScrollText
+  Star, Zap, BarChart3, BrainCircuit, ArrowUpRight,
+  ArrowDownRight, FileText, Map, LayoutList, ScrollText
 } from 'lucide-react';
 import { getStudentProfile, getSessionsByStudent, MOCK_COACH_PROFILES } from '@/lib/auth/mockData';
 
 export default function StudentPage() {
   const router = useRouter();
   const { user, isAuthenticated, isLoading, logout, hasRole } = useAuth();
-  const [selectedSubject, setSelectedSubject] = useState<string>('Tümü');
+  const [selectedSubject, setSelectedSubject] = useState<string>('TÃ¼mÃ¼');
   const [coachRating, setCoachRating] = useState(0);
   const [ratingComment, setRatingComment] = useState('');
   const [submittedRating, setSubmittedRating] = useState(false);
-  const [tasks, setTasks] = useState<{id:string;subject:string;topic:string;done:boolean;date:string}[]>([]);
+  const profile = getStudentProfile(user?.id || '');
+  const [tasks, setTasks] = useState<{id:string;subject:string;topic:string;done:boolean;date:string}[]>(profile?.dailyTasks || []);
 
   useEffect(() => {
     if (!isLoading && (!isAuthenticated || !hasRole('student'))) {
@@ -27,19 +27,11 @@ export default function StudentPage() {
     }
   }, [isLoading, isAuthenticated, hasRole, router]);
 
-  const profile = getStudentProfile(user?.id || '');
-
-  useEffect(() => {
-    if (profile) {
-      setTasks(profile.dailyTasks);
-    }
-  }, [profile?.id]);
-
   if (isLoading) {
-    return <div className="min-h-screen bg-bg-darkest flex items-center justify-center text-text-light">Yükleniyor...</div>;
+    return <div className="min-h-screen bg-bg-darkest flex items-center justify-center text-text-light">YÃ¼kleniyor...</div>;
   }
   if (!user || !hasRole('student') || !profile) {
-    return <div className="min-h-screen bg-bg-darkest flex items-center justify-center text-text-light">Profil bulunamadı</div>;
+    return <div className="min-h-screen bg-bg-darkest flex items-center justify-center text-text-light">Profil bulunamadÄ±</div>;
   }
 
   const sessions = getSessionsByStudent(profile.id);
@@ -48,21 +40,21 @@ export default function StudentPage() {
     .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())[0];
   const coach = profile.assignedCoach ? MOCK_COACH_PROFILES[profile.assignedCoach] : null;
 
-  const { progress, targetUniversity, targetDepartment, examYear, examHistory, topicProgress, streakDays } = profile;
+  const { progress, targetUniversity, examYear, examHistory, topicProgress, streakDays } = profile;
 
-  // Net değişim hesapla
+  // Net deÄŸiÅŸim hesapla
   const prevExam = examHistory.length > 1 ? examHistory[examHistory.length - 2] : null;
   const latestExam = examHistory[examHistory.length - 1];
   const tytChange = prevExam ? latestExam.tytNet - prevExam.tytNet : 0;
   const aytChange = prevExam ? latestExam.aytNet - prevExam.aytNet : 0;
 
   const weeklyStudy = [
-    { day: 'Pzt', hours: 6 }, { day: 'Sal', hours: 8 }, { day: 'Çar', hours: 7 },
+    { day: 'Pzt', hours: 6 }, { day: 'Sal', hours: 8 }, { day: 'Ã‡ar', hours: 7 },
     { day: 'Per', hours: 5 }, { day: 'Cum', hours: 9 }, { day: 'Cmt', hours: 4 }, { day: 'Paz', hours: 3 },
   ];
 
-  const subjects = ['Tümü', ...Array.from(new Set(topicProgress.map(t => t.subject)))];
-  const filteredTopics = selectedSubject === 'Tümü'
+  const subjects = ['TÃ¼mÃ¼', ...Array.from(new Set(topicProgress.map(t => t.subject)))];
+  const filteredTopics = selectedSubject === 'TÃ¼mÃ¼'
     ? topicProgress
     : topicProgress.filter(t => t.subject === selectedSubject);
 
@@ -92,7 +84,7 @@ export default function StudentPage() {
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <GraduationCap className="w-6 h-6 text-accent-cyan" />
-            <h1 className="font-bold text-white">Öğrenci Paneli</h1>
+            <h1 className="font-bold text-white">Ã–ÄŸrenci Paneli</h1>
           </div>
           <div className="flex items-center gap-4">
             <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full glass text-xs">
@@ -101,7 +93,7 @@ export default function StudentPage() {
             </div>
             <span className="text-sm text-text-light/60">{user.name}</span>
             <button onClick={logout} className="px-4 py-2 rounded-full glass text-sm text-accent-rose hover:bg-accent-rose/10 transition-all border-none cursor-pointer">
-              Çıkış Yap
+              Ã‡Ä±kÄ±ÅŸ Yap
             </button>
           </div>
         </div>
@@ -112,13 +104,13 @@ export default function StudentPage() {
         <div className="glass rounded-2xl p-6 md:p-8">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
             <div>
-              <h2 className="text-xl font-bold text-white mb-1">Merhaba, {user.name}! 👋</h2>
-              <p className="text-text-light/60 text-sm">{examYear} YKS hedefin için bugün de çalışmaya devam!</p>
+              <h2 className="text-xl font-bold text-white mb-1">Merhaba, {user.name}! ðŸ‘‹</h2>
+              <p className="text-text-light/60 text-sm">{examYear} YKS hedefin iÃ§in bugÃ¼n de Ã§alÄ±ÅŸmaya devam!</p>
             </div>
             <div className="flex items-center gap-3">
               <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-accent-cyan/10 text-accent-cyan text-sm font-medium">
                 <Flame className="w-4 h-4" />
-                {streakDays} günlük seri!
+                {streakDays} gÃ¼nlÃ¼k seri!
               </div>
               <div className="flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-text-light/80">
                 <Target className="w-4 h-4 text-accent-rose" />
@@ -149,7 +141,7 @@ export default function StudentPage() {
             </div>
             <div className="text-center p-4 rounded-xl bg-white/5">
               <p className="text-2xl font-bold text-accent-rose">{progress.weeklyStudyHours}</p>
-              <p className="text-text-light/50 text-xs">Haftalık Saat</p>
+              <p className="text-text-light/50 text-xs">HaftalÄ±k Saat</p>
             </div>
             <div className="text-center p-4 rounded-xl bg-white/5">
               <p className="text-2xl font-bold text-green-400">{progress.completedTopics.length}</p>
@@ -161,14 +153,14 @@ export default function StudentPage() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Main Column */}
           <div className="lg:col-span-2 space-y-8">
-            {/* Today's Tasks - kantakademi style günlük takip */}
+            {/* Today's Tasks - kantakademi style gÃ¼nlÃ¼k takip */}
             <div className="glass rounded-2xl p-6">
               <div className="flex items-center justify-between mb-4">
                 <h2 className="text-lg font-semibold text-white flex items-center gap-2">
                   <LayoutList className="w-5 h-5 text-accent-cyan" />
-                  Bugünkü Görevler
+                  BugÃ¼nkÃ¼ GÃ¶revler
                 </h2>
-                <span className="text-xs text-text-light/40">{tasks.filter(t => t.done).length}/{tasks.length} tamamlandı</span>
+                <span className="text-xs text-text-light/40">{tasks.filter(t => t.done).length}/{tasks.length} tamamlandÄ±</span>
               </div>
               <div className="space-y-2">
                 {tasks.map((task) => (
@@ -187,7 +179,7 @@ export default function StudentPage() {
               </div>
             </div>
 
-            {/* Exam Analysis - Milet Portal tarzı */}
+            {/* Exam Analysis - Milet Portal tarzÄ± */}
             <div className="glass rounded-2xl p-6">
               <h2 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
                 <BarChart3 className="w-5 h-5 text-accent-violet" />
@@ -221,7 +213,7 @@ export default function StudentPage() {
               {/* Subject breakdown for latest exam */}
               {latestExam && (
                 <div>
-                  <p className="text-xs text-text-light/50 mb-3">Son Deneme Konu Bazlı Netler — {latestExam.name}</p>
+                  <p className="text-xs text-text-light/50 mb-3">Son Deneme Konu BazlÄ± Netler â€” {latestExam.name}</p>
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                     {Object.entries(latestExam.subjectNets).map(([subject, net]) => (
                       <div key={subject} className="p-3 rounded-xl bg-white/5 text-center">
@@ -261,7 +253,7 @@ export default function StudentPage() {
                 </div>
                 <div className="text-center p-2 rounded-lg bg-green-500/5 border border-green-500/10">
                   <p className="text-lg font-bold text-green-400">{topicCounts.done}</p>
-                  <p className="text-[10px] text-text-light/40">Tamamlandı</p>
+                  <p className="text-[10px] text-text-light/40">TamamlandÄ±</p>
                 </div>
                 <div className="text-center p-2 rounded-lg bg-accent-cyan/5 border border-accent-cyan/10">
                   <p className="text-lg font-bold text-accent-cyan">{topicCounts['in-progress']}</p>
@@ -269,7 +261,7 @@ export default function StudentPage() {
                 </div>
                 <div className="text-center p-2 rounded-lg bg-white/5 border border-white/10">
                   <p className="text-lg font-bold text-text-light/40">{topicCounts['not-started']}</p>
-                  <p className="text-[10px] text-text-light/40">Başlanmadı</p>
+                  <p className="text-[10px] text-text-light/40">BaÅŸlanmadÄ±</p>
                 </div>
               </div>
               {/* Topic tags */}
@@ -291,7 +283,7 @@ export default function StudentPage() {
             <div className="glass rounded-2xl p-6">
               <h2 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
                 <Clock className="w-5 h-5 text-accent-cyan" />
-                Haftalık Çalışma Takibi
+                HaftalÄ±k Ã‡alÄ±ÅŸma Takibi
               </h2>
               <div className="flex items-end gap-2 h-40 px-2">
                 {weeklyStudy.map((d) => (
@@ -309,7 +301,7 @@ export default function StudentPage() {
                   <p className="text-lg font-bold text-white">{weeklyStudy.reduce((a, d) => a + d.hours, 0)} saat</p>
                 </div>
                 <div>
-                  <p className="text-xs text-text-light/50">Günlük Ortalama</p>
+                  <p className="text-xs text-text-light/50">GÃ¼nlÃ¼k Ortalama</p>
                   <p className="text-lg font-bold text-white">{(weeklyStudy.reduce((a, d) => a + d.hours, 0) / 7).toFixed(1)} saat</p>
                 </div>
                 <div>
@@ -326,7 +318,7 @@ export default function StudentPage() {
             <div className="glass rounded-2xl p-6">
               <h2 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
                 <Calendar className="w-5 h-5 text-accent-cyan" />
-                Sonraki Koç Görüşmesi
+                Sonraki KoÃ§ GÃ¶rÃ¼ÅŸmesi
               </h2>
               {upcomingSession ? (
                 <div className="p-4 rounded-xl bg-accent-cyan/5 border border-accent-cyan/20">
@@ -336,13 +328,13 @@ export default function StudentPage() {
                       {new Date(upcomingSession.date).toLocaleDateString('tr-TR', { day: 'numeric', month: 'long' })}, {new Date(upcomingSession.date).getHours()}:00
                     </span>
                   </div>
-                  <p className="text-text-light/50 text-sm">{coach?.name || 'Koç'} • {upcomingSession.type}</p>
+                  <p className="text-text-light/50 text-sm">{coach?.name || 'KoÃ§'} â€¢ {upcomingSession.type}</p>
                   {upcomingSession.notes && (
-                    <p className="text-text-light/40 text-xs mt-2 italic">"{upcomingSession.notes}"</p>
+                    <p className="text-text-light/40 text-xs mt-2 italic">&quot;{upcomingSession.notes}&quot;</p>
                   )}
                 </div>
               ) : (
-                <p className="text-text-light/40 text-sm text-center py-4">Yaklaşan seans yok.</p>
+                <p className="text-text-light/40 text-sm text-center py-4">YaklaÅŸan seans yok.</p>
               )}
             </div>
 
@@ -350,11 +342,11 @@ export default function StudentPage() {
             <div className="glass rounded-2xl p-6">
               <h2 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
                 <ScrollText className="w-5 h-5 text-accent-violet" />
-                Aylık Performans Özeti
+                AylÄ±k Performans Ã–zeti
               </h2>
               <div className="space-y-3">
                 <div className="flex items-center justify-between text-sm">
-                  <span className="text-text-light/60">Net Artışı</span>
+                  <span className="text-text-light/60">Net ArtÄ±ÅŸÄ±</span>
                   <span className="text-green-400 font-medium">+{tytChange + aytChange}</span>
                 </div>
                 <div className="flex items-center justify-between text-sm">
@@ -362,16 +354,16 @@ export default function StudentPage() {
                   <span className="text-accent-cyan font-medium">{progress.completedTopics.length}</span>
                 </div>
                 <div className="flex items-center justify-between text-sm">
-                  <span className="text-text-light/60">Katılım Oranı</span>
+                  <span className="text-text-light/60">KatÄ±lÄ±m OranÄ±</span>
                   <span className="text-accent-violet font-medium">%92</span>
                 </div>
                 <div className="flex items-center justify-between text-sm">
-                  <span className="text-text-light/60">Koç Değerlendirmesi</span>
-                  <span className="text-yellow-400 font-medium">Çok İyi</span>
+                  <span className="text-text-light/60">KoÃ§ DeÄŸerlendirmesi</span>
+                  <span className="text-yellow-400 font-medium">Ã‡ok Ä°yi</span>
                 </div>
                 <div className="pt-3 border-t border-white/5">
                   <p className="text-xs text-text-light/40 italic">
-                    "Bu ay hedeflerinin üzerine çıktın. Özellikle AYT Matematik netlerindeki artış dikkat çekici."
+                    "Bu ay hedeflerinin Ã¼zerine Ã§Ä±ktÄ±n. Ã–zellikle AYT Matematik netlerindeki artÄ±ÅŸ dikkat Ã§ekici."
                   </p>
                 </div>
               </div>
@@ -381,12 +373,12 @@ export default function StudentPage() {
             <div className="glass rounded-2xl p-6">
               <h2 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
                 <Star className="w-5 h-5 text-yellow-400" />
-                Koçumu Puanla
+                KoÃ§umu Puanla
               </h2>
               {submittedRating ? (
                 <div className="text-center py-4">
                   <CheckCircle2 className="w-8 h-8 text-green-400 mx-auto mb-2" />
-                  <p className="text-sm text-text-light/80">Puanın gönderildi! Teşekkürler.</p>
+                  <p className="text-sm text-text-light/80">PuanÄ±n gÃ¶nderildi! TeÅŸekkÃ¼rler.</p>
                 </div>
               ) : (
                 <div className="space-y-3">
@@ -404,7 +396,7 @@ export default function StudentPage() {
                   <textarea
                     value={ratingComment}
                     onChange={(e) => setRatingComment(e.target.value)}
-                    placeholder="Koçun hakkında bir şeyler yaz... (isteğe bağlı)"
+                    placeholder="KoÃ§un hakkÄ±nda bir ÅŸeyler yaz... (isteÄŸe baÄŸlÄ±)"
                     className="w-full px-3 py-2 rounded-lg bg-white/5 border border-white/10 text-text-light text-sm placeholder:text-text-light/30 focus:outline-none focus:ring-2 focus:ring-accent-cyan resize-none h-16"
                   />
                   <button
@@ -412,7 +404,7 @@ export default function StudentPage() {
                     disabled={coachRating === 0}
                     className="w-full px-4 py-2 bg-gradient-accent text-bg-darkest font-medium rounded-full text-sm hover:shadow-glow-cyan transition-all disabled:opacity-40 border-none cursor-pointer"
                   >
-                    Gönder
+                    GÃ¶nder
                   </button>
                 </div>
               )}
@@ -422,15 +414,15 @@ export default function StudentPage() {
             <div className="glass rounded-2xl p-6">
               <h2 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
                 <Award className="w-5 h-5 text-accent-rose" />
-                Başarılarım
+                BaÅŸarÄ±larÄ±m
               </h2>
               <div className="space-y-3">
                 {[
-                  { icon: Award, label: 'İlk 50 Net', desc: 'TYT denemesinde 50+ net', color: 'text-accent-cyan', achieved: true },
-                  { icon: Flame, label: '7 Günlük Seri', desc: '7 gün üst üste çalışma', color: 'text-accent-rose', achieved: true },
-                  { icon: TrendingUp, label: 'Net Artışı', desc: 'Bir ayda +10 net', color: 'text-green-400', achieved: true },
-                  { icon: Zap, label: 'Maratoncu', desc: '30 gün üst üste çalışma', color: 'text-yellow-400', achieved: false },
-                  { icon: BrainCircuit, label: 'AI Uzmanı', desc: '50+ AI sorusu çözümü', color: 'text-accent-violet', achieved: false },
+                  { icon: Award, label: 'Ä°lk 50 Net', desc: 'TYT denemesinde 50+ net', color: 'text-accent-cyan', achieved: true },
+                  { icon: Flame, label: '7 GÃ¼nlÃ¼k Seri', desc: '7 gÃ¼n Ã¼st Ã¼ste Ã§alÄ±ÅŸma', color: 'text-accent-rose', achieved: true },
+                  { icon: TrendingUp, label: 'Net ArtÄ±ÅŸÄ±', desc: 'Bir ayda +10 net', color: 'text-green-400', achieved: true },
+                  { icon: Zap, label: 'Maratoncu', desc: '30 gÃ¼n Ã¼st Ã¼ste Ã§alÄ±ÅŸma', color: 'text-yellow-400', achieved: false },
+                  { icon: BrainCircuit, label: 'AI UzmanÄ±', desc: '50+ AI sorusu Ã§Ã¶zÃ¼mÃ¼', color: 'text-accent-violet', achieved: false },
                 ].map((badge) => {
                   const Icon = badge.icon;
                   return (
@@ -453,14 +445,14 @@ export default function StudentPage() {
             <div className="glass rounded-2xl p-6">
               <h2 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
                 <BookOpen className="w-5 h-5 text-accent-cyan" />
-                Koçumdan Kaynaklar
+                KoÃ§umdan Kaynaklar
               </h2>
               <div className="space-y-2">
                 {[
-                  { name: 'TYT Matematik Formülleri.pdf', type: 'PDF' },
-                  { name: 'Paragraf Çözüm Teknikleri.mp4', type: 'Video' },
-                  { name: 'Haftalık Çalışma Planı', type: 'Plan' },
-                  { name: 'AYT Fizik Konu Anlatımı.pdf', type: 'PDF' },
+                  { name: 'TYT Matematik FormÃ¼lleri.pdf', type: 'PDF' },
+                  { name: 'Paragraf Ã‡Ã¶zÃ¼m Teknikleri.mp4', type: 'Video' },
+                  { name: 'HaftalÄ±k Ã‡alÄ±ÅŸma PlanÄ±', type: 'Plan' },
+                  { name: 'AYT Fizik Konu AnlatÄ±mÄ±.pdf', type: 'PDF' },
                 ].map((r) => (
                   <div key={r.name} className="flex items-center gap-3 p-3 rounded-xl bg-white/5 hover:bg-white/10 transition-all cursor-pointer">
                     <FileText className="w-4 h-4 text-accent-cyan" />
@@ -478,7 +470,7 @@ export default function StudentPage() {
               onClick={() => {
                 const el = document.getElementById('chat-widget-root');
                 if (el) el.click();
-                else alert('AI Koç asistanı yakında aktif!');
+                else alert('AI KoÃ§ asistanÄ± yakÄ±nda aktif!');
               }}
               className="w-full glass rounded-2xl p-4 flex items-center gap-4 hover:bg-white/5 transition-all border-none cursor-pointer text-left"
             >
@@ -487,7 +479,7 @@ export default function StudentPage() {
               </div>
               <div className="flex-1">
                 <p className="font-semibold text-white text-sm">AI Destek (Kant Yapay Zeka)</p>
-                <p className="text-text-light/50 text-xs">Sorularını anlık çöz, ders özeti al</p>
+                <p className="text-text-light/50 text-xs">SorularÄ±nÄ± anlÄ±k Ã§Ã¶z, ders Ã¶zeti al</p>
               </div>
               <ChevronRight className="w-5 h-5 text-text-light/30" />
             </button>
