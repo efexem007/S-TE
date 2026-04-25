@@ -7,10 +7,10 @@ import {
   Users, DollarSign, BookOpen, Settings, Shield,
   TrendingUp, ArrowRight, Mail, Phone, CheckCircle2, XCircle,
   Star, GraduationCap, Target, Clock, BarChart3,
-  AlertCircle, ChevronDown, ChevronUp, Search
+  AlertCircle, ChevronDown, ChevronUp, Search, Key, Lock
 } from 'lucide-react';
 import {
-  getAllStudents, getAllCoaches, getPendingApplications
+  getAllStudents, getAllCoaches, getPendingApplications, changePassword
 } from '@/lib/auth/mockData';
 import type { Application } from '@/lib/auth/types';
 
@@ -21,6 +21,41 @@ export default function AdminPage() {
   const [selectedCoachFilter, setSelectedCoachFilter] = useState<string>('all');
   const [applications, setApplications] = useState<Application[]>(getPendingApplications());
   const [expandedApp, setExpandedApp] = useState<string | null>(null);
+
+  // Password change state
+  const [currentPassword, setCurrentPassword] = useState('');
+  const [newPassword, setNewPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+  const [passwordSuccess, setPasswordSuccess] = useState('');
+  const [showPasswordChange, setShowPasswordChange] = useState(false);
+
+  const handleChangePassword = () => {
+    setPasswordError('');
+    setPasswordSuccess('');
+    if (!currentPassword || !newPassword || !confirmPassword) {
+      setPasswordError('Tüm alanları doldurun.');
+      return;
+    }
+    if (newPassword !== confirmPassword) {
+      setPasswordError('Yeni şifreler eşleşmiyor.');
+      return;
+    }
+    if (newPassword.length < 6) {
+      setPasswordError('Yeni şifre en az 6 karakter olmalı.');
+      return;
+    }
+    const success = changePassword(user?.email || '', currentPassword, newPassword);
+    if (success) {
+      setPasswordSuccess('Şifre başarıyla değiştirildi!');
+      setCurrentPassword('');
+      setNewPassword('');
+      setConfirmPassword('');
+      setTimeout(() => setPasswordSuccess(''), 3000);
+    } else {
+      setPasswordError('Mevcut şifre yanlış.');
+    }
+  };
 
   useEffect(() => {
     if (!isLoading && (!isAuthenticated || !hasRole('admin'))) {
@@ -376,6 +411,73 @@ export default function AdminPage() {
               );
             })}
           </div>
+        </div>
+
+        {/* Password Change - Only for admin */}
+        <div className="glass rounded-2xl p-6">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-lg font-semibold text-white flex items-center gap-2">
+              <Key className="w-5 h-5 text-accent-rose" />
+              Şifre Değiştir
+            </h2>
+            <button
+              onClick={() => setShowPasswordChange(!showPasswordChange)}
+              className="text-xs text-accent-cyan hover:text-accent-cyan/80 transition-colors border-none cursor-pointer bg-transparent"
+            >
+              {showPasswordChange ? 'Gizle' : 'Göster'}
+            </button>
+          </div>
+          {showPasswordChange && (
+            <div className="space-y-4 max-w-md">
+              <div>
+                <label className="block text-xs text-text-light/50 mb-1.5">Mevcut Şifre</label>
+                <div className="relative">
+                  <Lock className="w-4 h-4 text-text-light/30 absolute left-3 top-1/2 -translate-y-1/2" />
+                  <input
+                    type="password"
+                    value={currentPassword}
+                    onChange={(e) => setCurrentPassword(e.target.value)}
+                    className="w-full pl-9 pr-4 py-2.5 rounded-lg bg-white/5 border border-white/10 text-text-light text-sm focus:outline-none focus:ring-2 focus:ring-accent-cyan"
+                    placeholder="••••••"
+                  />
+                </div>
+              </div>
+              <div>
+                <label className="block text-xs text-text-light/50 mb-1.5">Yeni Şifre</label>
+                <div className="relative">
+                  <Lock className="w-4 h-4 text-text-light/30 absolute left-3 top-1/2 -translate-y-1/2" />
+                  <input
+                    type="password"
+                    value={newPassword}
+                    onChange={(e) => setNewPassword(e.target.value)}
+                    className="w-full pl-9 pr-4 py-2.5 rounded-lg bg-white/5 border border-white/10 text-text-light text-sm focus:outline-none focus:ring-2 focus:ring-accent-cyan"
+                    placeholder="••••••"
+                  />
+                </div>
+              </div>
+              <div>
+                <label className="block text-xs text-text-light/50 mb-1.5">Yeni Şifre (Tekrar)</label>
+                <div className="relative">
+                  <Lock className="w-4 h-4 text-text-light/30 absolute left-3 top-1/2 -translate-y-1/2" />
+                  <input
+                    type="password"
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                    className="w-full pl-9 pr-4 py-2.5 rounded-lg bg-white/5 border border-white/10 text-text-light text-sm focus:outline-none focus:ring-2 focus:ring-accent-cyan"
+                    placeholder="••••••"
+                  />
+                </div>
+              </div>
+              {passwordError && <p className="text-accent-rose text-xs">{passwordError}</p>}
+              {passwordSuccess && <p className="text-green-400 text-xs">{passwordSuccess}</p>}
+              <button
+                onClick={handleChangePassword}
+                className="px-6 py-2.5 bg-gradient-accent text-bg-darkest font-medium rounded-full text-sm hover:shadow-glow-cyan transition-all border-none cursor-pointer"
+              >
+                Şifreyi Değiştir
+              </button>
+            </div>
+          )}
         </div>
       </main>
     </div>

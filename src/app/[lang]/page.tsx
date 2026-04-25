@@ -12,6 +12,7 @@ import SocialProof from '@/components/sections/SocialProof';
 import Testimonials from '@/components/sections/Testimonials';
 import Pricing from '@/components/sections/Pricing';
 import Blog from '@/components/sections/Blog';
+import SuccessStories from '@/components/sections/SuccessStories';
 import LeadMagnet from '@/components/sections/LeadMagnet';
 import FAQ from '@/components/sections/FAQ';
 import Contact from '@/components/sections/Contact';
@@ -33,6 +34,7 @@ export default function HomePage({ params }: { params: { lang: string } }) {
       <Process lang={lang} />
       <SocialProof lang={lang} />
       <Testimonials lang={lang} />
+      <SuccessStories lang={lang} />
       <Pricing lang={lang} />
       <Blog lang={lang} />
       <LeadMagnet lang={lang} />

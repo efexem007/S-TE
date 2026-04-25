@@ -3,13 +3,13 @@ import { UserRole, User, CoachProfile, StudentProfile, Session, CoachRating, App
 // Mock password hash (in production, use bcrypt)
 const MOCK_PASSWORD = 'admin123';
 
-export const MOCK_USERS: Record<string, { password: string; user: User }> = {
-  'admin@duemwework.com': {
-    password: MOCK_PASSWORD,
+export let MOCK_USERS: Record<string, { password: string; user: User }> = {
+  'mefe0055@gmail.com': {
+    password: 'AsDAQ@108574',
     user: {
       id: 'admin-1',
-      email: 'admin@duemwework.com',
-      name: 'Site Sahibi',
+      email: 'mefe0055@gmail.com',
+      name: 'Kurucu',
       role: 'admin' as UserRole,
       avatar: undefined,
     },
@@ -303,4 +303,18 @@ export function getCoachRatings(coachId: string): CoachRating[] {
 
 export function getPendingApplications(): Application[] {
   return MOCK_APPLICATIONS.filter((a) => a.status === 'pending');
+}
+
+export function changePassword(email: string, currentPassword: string, newPassword: string): boolean {
+  const record = MOCK_USERS[email];
+  if (!record) return false;
+  if (record.password !== currentPassword) return false;
+  MOCK_USERS = {
+    ...MOCK_USERS,
+    [email]: {
+      ...record,
+      password: newPassword,
+    },
+  };
+  return true;
 }

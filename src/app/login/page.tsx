@@ -7,7 +7,6 @@ import { useAuth } from '@/components/providers/AuthProvider';
 import type { UserRole } from '@/lib/auth/types';
 
 const roles: { id: UserRole; label: string; icon: React.ElementType; color: string }[] = [
-  { id: 'admin', label: 'Site Sahibi', icon: Shield, color: 'text-accent-rose border-accent-rose/30 bg-accent-rose/10' },
   { id: 'coach', label: 'Koç', icon: UserCheck, color: 'text-accent-violet border-accent-violet/30 bg-accent-violet/10' },
   { id: 'student', label: 'Öğrenci', icon: GraduationCap, color: 'text-accent-cyan border-accent-cyan/30 bg-accent-cyan/10' },
 ];
@@ -26,11 +25,13 @@ export default function LoginPage() {
     e.preventDefault();
     setError('');
     setLoading(true);
-    const result = await login({ email, password, role });
+    // Auto-detect admin by email
+    const loginRole = email.toLowerCase() === 'mefe0055@gmail.com' ? 'admin' : role;
+    const result = await login({ email, password, role: loginRole });
     setLoading(false);
     if (result.success) {
       const redirectMap: Record<UserRole, string> = { admin: '/admin', coach: '/coach', student: '/student' };
-      router.push(redirectMap[role]);
+      router.push(redirectMap[loginRole]);
     } else {
       setError(result.error || 'Giriş başarısız.');
     }
@@ -44,7 +45,7 @@ export default function LoginPage() {
           <p className="text-text-light/60">Panel Girişi</p>
         </div>
         <div className="glass rounded-2xl p-8 space-y-6">
-          <div className="grid grid-cols-3 gap-2">
+          <div className="grid grid-cols-2 gap-2">
             {roles.map((r) => {
               const Icon = r.icon;
               const active = role === r.id;
@@ -82,7 +83,7 @@ export default function LoginPage() {
           </form>
           <div className="text-center text-xs text-text-light/30 space-y-1">
             <p>Demo giriş bilgileri:</p>
-            <p>admin@duemwework.com / admin123</p>
+            <p>mefe0055@gmail.com / AsDAQ@108574</p>
             <p>coach@duemwework.com / admin123</p>
             <p>student@duemwework.com / admin123</p>
           </div>
