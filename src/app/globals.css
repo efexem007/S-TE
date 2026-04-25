@@ -33,7 +33,10 @@
 }
 
 /* Base */
-html { scroll-behavior: auto; } /* Lenis override eder */
+html {
+  scroll-behavior: auto; /* Lenis override eder */
+  scroll-padding-top: 80px; /* Sabit navbar boşluğu */
+}
 body {
   background-color: var(--bg-dark);
   color: var(--text-light);
