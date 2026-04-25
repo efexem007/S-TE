@@ -8,10 +8,13 @@ import { cn } from '@/lib/utils';
 const navLinks = [
   { href: '#hero', label: 'Ana Sayfa', labelEn: 'Home' },
   { href: '#about', label: 'Hakkımızda', labelEn: 'About' },
+  { href: '#programs', label: 'Programlar', labelEn: 'Programs' },
   { href: '#services', label: 'Hizmetler', labelEn: 'Services' },
   { href: '#coaches', label: 'Koçlar', labelEn: 'Coaches' },
   { href: '#process', label: 'Süreç', labelEn: 'Process' },
   { href: '#testimonials', label: 'Yorumlar', labelEn: 'Testimonials' },
+  { href: '#pricing', label: 'Fiyatlandırma', labelEn: 'Pricing' },
+  { href: '#faq', label: 'SSS', labelEn: 'FAQ' },
   { href: '#contact', label: 'İletişim', labelEn: 'Contact' },
 ];
 
