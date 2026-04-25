@@ -27,6 +27,7 @@ export const metadata: Metadata = {
 };
 
 import { AuthProvider } from '@/components/providers/AuthProvider';
+import ScrollProgress from '@/components/ui/ScrollProgress';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -44,6 +45,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           Ana içeriğe geç
         </a>
+        <ScrollProgress />
         <AuthProvider>
           {children}
         </AuthProvider>
