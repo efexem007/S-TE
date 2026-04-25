@@ -1,0 +1,66 @@
+[
+  {
+    "id": "basic",
+    "name": "Başlangıç",
+    "nameEn": "Starter",
+    "price": "1.500",
+    "currency": "₺",
+    "period": "ay",
+    "periodEn": "month",
+    "features": [
+      "4 seans birebir koçluk",
+      "Online kaynaklara erişim",
+      "E-posta desteği"
+    ],
+    "featuresEn": [
+      "4 one-on-one coaching sessions",
+      "Access to online resources",
+      "Email support"
+    ],
+    "popular": false
+  },
+  {
+    "id": "pro",
+    "name": "Profesyonel",
+    "nameEn": "Professional",
+    "price": "3.500",
+    "currency": "₺",
+    "period": "ay",
+    "periodEn": "month",
+    "features": [
+      "8 seans birebir koçluk",
+      "Online kaynaklara erişim",
+      "7/24 WhatsApp desteği",
+      "Kişiselleştirilmiş gelişim planı"
+    ],
+    "featuresEn": [
+      "8 one-on-one coaching sessions",
+      "Access to online resources",
+      "24/7 WhatsApp support",
+      "Personalized development plan"
+    ],
+    "popular": true
+  },
+  {
+    "id": "enterprise",
+    "name": "Kurumsal",
+    "nameEn": "Enterprise",
+    "price": "Özel",
+    "currency": "",
+    "period": "",
+    "periodEn": "",
+    "features": [
+      "Sınırsız seans",
+      "Tüm online kaynaklar",
+      "Özel danışmanlık",
+      "Ekip eğitimleri"
+    ],
+    "featuresEn": [
+      "Unlimited sessions",
+      "All online resources",
+      "Dedicated consulting",
+      "Team training sessions"
+    ],
+    "popular": false
+  }
+]

@@ -1,0 +1,34 @@
+[
+  {
+    "id": "one-on-one",
+    "title": "Birebir Koçluk",
+    "titleEn": "One-on-One Coaching",
+    "description": "Kişisel hedeflerinize ulaşmanız için özel koçluk seansları.",
+    "descriptionEn": "Personalized coaching sessions to help you achieve your individual goals.",
+    "icon": "User"
+  },
+  {
+    "id": "corporate",
+    "title": "Kurumsal Eğitim",
+    "titleEn": "Corporate Training",
+    "description": "Ekibinizin verimliliğini artıran özel eğitim programları.",
+    "descriptionEn": "Custom training programs to boost your team's productivity.",
+    "icon": "Building2"
+  },
+  {
+    "id": "online",
+    "title": "Online Program",
+    "titleEn": "Online Program",
+    "description": "Esnek zamanlı, uzaktan eğitim ve koçluk imkanı.",
+    "descriptionEn": "Flexible, remote coaching and training opportunities.",
+    "icon": "Monitor"
+  },
+  {
+    "id": "consulting",
+    "title": "Danışmanlık",
+    "titleEn": "Consulting",
+    "description": "Stratejik planlama ve iş geliştirme danışmanlığı.",
+    "descriptionEn": "Strategic planning and business development consulting.",
+    "icon": "Lightbulb"
+  }
+]

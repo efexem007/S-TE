@@ -1,0 +1,18 @@
+# Faz Geçiş Kuralları — DueM via Work
+
+KURAL 1: Bu proje 3 fazdan oluşur. Her fazın sonunda MUTLAKA dur.
+Onay mesajı tam olarak şu olmalı:
+"✅ FAZ [N] TAMAMLANDI. Devam etmemi onaylar mısın?"
+Kullanıcı "evet" veya "devam" demeden bir sonraki faza GEÇMEYECEKSİN.
+
+KURAL 2: Her ADIM bitmeden bir sonrakine geçme.
+Adım içindeki tüm dosyalar oluşturulmuş ve hatasız olmalı.
+
+KURAL 3: Hata çıkarsa dur, kullanıcıya bildir, çözüm öner.
+Kendi kendine 3 denemeden fazla uğraşma.
+
+KURAL 4: Browser Tool kullanırken her site ziyaretini kullanıcıya bildir.
+
+KURAL 5: Placeholder içerikleri <!-- TODO: gerçek içerik --> ile işaretle.
+
+KURAL 6: Hiçbir zaman API key'leri client-side koda yazma.

@@ -1,0 +1,29 @@
+[
+  {
+    "id": "coach-1",
+    "name": "Ayşe Yılmaz",
+    "title": "Kariyer Koçu",
+    "titleEn": "Career Coach",
+    "bio": "15 yıllık insan kaynakları deneyimiyle kariyer dönüşümü uzmanı.",
+    "bioEn": "Career transformation expert with 15 years of HR experience.",
+    "image": "/images/coach-1.jpg"
+  },
+  {
+    "id": "coach-2",
+    "name": "Mehmet Kaya",
+    "title": "İşletme Danışmanı",
+    "titleEn": "Business Consultant",
+    "bio": "Girişimcilik ve stratejik planlama alanında sertifikalı danışman.",
+    "bioEn": "Certified consultant in entrepreneurship and strategic planning.",
+    "image": "/images/coach-2.jpg"
+  },
+  {
+    "id": "coach-3",
+    "name": "Zeynep Demir",
+    "title": "Yaşam Koçu",
+    "titleEn": "Life Coach",
+    "bio": "Bireysel gelişim ve yaşam dengesi üzerine uzmanlaşmış koç.",
+    "bioEn": "Coach specialized in personal development and life balance.",
+    "image": "/images/coach-3.jpg"
+  }
+]

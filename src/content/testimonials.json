@@ -1,0 +1,29 @@
+[
+  {
+    "id": "testimonial-1",
+    "name": "Elif Şahin",
+    "title": "Pazarlama Müdürü",
+    "titleEn": "Marketing Manager",
+    "quote": "DueM via Work sayesinde kariyerimde beklenmedik bir dönüşüm yaşadım. Koçluk seansları benim için çok değerliydi.",
+    "quoteEn": "Thanks to DueM via Work, I experienced an unexpected transformation in my career. The coaching sessions were invaluable.",
+    "rating": 5
+  },
+  {
+    "id": "testimonial-2",
+    "name": "Can Özdemir",
+    "title": "Girişimci",
+    "titleEn": "Entrepreneur",
+    "quote": "Kurumsal eğitim programları ekibimizin verimliliğini %40 artırdı. Profesyonel ve samimi bir yaklaşım.",
+    "quoteEn": "The corporate training programs increased our team's efficiency by 40%. A professional yet warm approach.",
+    "rating": 5
+  },
+  {
+    "id": "testimonial-3",
+    "name": "Selin Aydın",
+    "title": "Yazılım Mühendisi",
+    "titleEn": "Software Engineer",
+    "quote": "Online koçluk programı sayesinde yoğun iş temposunda bile kendime zaman ayırabildim. Harika bir deneyim!",
+    "quoteEn": "Thanks to the online coaching program, I could make time for myself even with a busy work schedule. A great experience!",
+    "rating": 5
+  }
+]

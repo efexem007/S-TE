@@ -1,26 +1,89 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CSS Custom Properties */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg-light:       #F8F9FB;
+  --bg-cream:       #F0F2F5;
+  --bg-dark:        #0B0C15;
+  --bg-dark-2:      #12121A;
+  --bg-darkest:     #050507;
+  --accent-cyan:    #00F0FF;
+  --accent-violet:  #8B5CF6;
+  --accent-rose:    #F43F5E;
+  --text-primary:   #0A0A0F;
+  --text-secondary: #6B7280;
+  --text-light:     #F3F4F6;
+
+  --gradient-light-dark: linear-gradient(180deg, #F8F9FB 0%, #0B0C15 100%);
+  --gradient-dark-light: linear-gradient(180deg, #12121A 0%, #F8F9FB 100%);
+  --gradient-accent:     linear-gradient(135deg, #00F0FF 0%, #8B5CF6 100%);
+
+  --section-padding-y-desktop: 6rem;   /* 96px */
+  --section-padding-y-tablet:  3.75rem; /* 60px */
+  --section-padding-y-mobile:  2.5rem;  /* 40px */
+  --section-transition-height: 200px;
+  --container-max:             1280px;
+  --radius-card:               16px;
+  --shadow-card:               0 4px 24px rgba(0,0,0,0.08);
+  --shadow-card-hover:         0 12px 40px rgba(0,0,0,0.16);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* Base */
+html { scroll-behavior: auto; } /* Lenis override eder */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
+/* Selection */
+::selection {
+  background: rgba(0, 240, 255, 0.3);
+  color: #fff;
+}
+
+/* Focus Ring — a11y */
+:focus-visible {
+  outline: 2px solid var(--accent-cyan);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Gradient text utility */
+.text-gradient {
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Section geçiş yardımcısı */
+.section-transition {
+  height: var(--section-transition-height);
+  pointer-events: none;
+}
+
+/* Scroll hide utility */
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }

@@ -1,0 +1,85 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "coaches": "Coaches",
+    "process": "Process",
+    "testimonials": "Testimonials",
+    "contact": "Contact",
+    "cta": "Book a Session"
+  },
+  "hero": {
+    "title": "Unlock Your Potential",
+    "subtitle": "Transform your career and life with professional coaching and training services.",
+    "ctaPrimary": "Get Started",
+    "ctaSecondary": "Explore Services"
+  },
+  "about": {
+    "title": "About Us",
+    "slogan": "Mediterranean warmth, professional discipline",
+    "description": "At DueM via Work, we offer personalized coaching and training programs to help individuals and organizations reach their full potential."
+  },
+  "services": {
+    "title": "Our Services",
+    "items": [
+      {
+        "title": "One-on-One Coaching",
+        "description": "Personalized coaching sessions to help you achieve your individual goals."
+      },
+      {
+        "title": "Corporate Training",
+        "description": "Custom training programs to boost your team's productivity."
+      },
+      {
+        "title": "Online Program",
+        "description": "Flexible, remote coaching and training opportunities."
+      },
+      {
+        "title": "Consulting",
+        "description": "Strategic planning and business development consulting."
+      }
+    ]
+  },
+  "coaches": {
+    "title": "Our Coaches",
+    "subtitle": "Meet our certified, expert professional coaches."
+  },
+  "process": {
+    "title": "Our Process",
+    "steps": [
+      { "number": "01", "title": "Discovery", "description": "We analyze your needs and goals." },
+      { "number": "02", "title": "Planning", "description": "We create a customized roadmap for you." },
+      { "number": "03", "title": "Implementation", "description": "Coaching sessions and training begin." },
+      { "number": "04", "title": "Evaluation", "description": "We measure and optimize your progress." }
+    ]
+  },
+  "testimonials": {
+    "title": "Client Testimonials",
+    "subtitle": "Be inspired by our success stories."
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "Take the first step towards achieving your goals.",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "submit": "Send",
+      "success": "Your message has been sent successfully!",
+      "error": "An error occurred. Please try again."
+    }
+  },
+  "footer": {
+    "description": "Professional development, one-on-one coaching, and corporate training.",
+    "rights": "All rights reserved."
+  },
+  "chat": {
+    "open": "Open chat",
+    "close": "Close chat",
+    "placeholder": "Type your message...",
+    "initialMessage": "Hello! How can I help you?",
+    "error": "I can't help right now, please reach out via the form.",
+    "characterCount": "{current} / {max}"
+  }
+}

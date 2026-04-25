@@ -1,0 +1,85 @@
+{
+  "nav": {
+    "home": "Ana Sayfa",
+    "about": "Hakkımızda",
+    "services": "Hizmetler",
+    "coaches": "Koçlar",
+    "process": "Süreç",
+    "testimonials": "Yorumlar",
+    "contact": "İletişim",
+    "cta": "Randevu Al"
+  },
+  "hero": {
+    "title": "Potansiyelinizi Keşfedin",
+    "subtitle": "Profesyonel koçluk ve eğitim hizmetleriyle kariyerinizi ve yaşamınızı dönüştürün.",
+    "ctaPrimary": "Hemen Başlayın",
+    "ctaSecondary": "Hizmetlerimizi Keşfedin"
+  },
+  "about": {
+    "title": "Hakkımızda",
+    "slogan": "Akdeniz'in sıcaklığı, profesyonel disiplin",
+    "description": "DueM via Work olarak, bireylerin ve kurumların potansiyellerini en üst düzeye çıkarmaları için kişiselleştirilmiş koçluk ve eğitim programları sunuyoruz."
+  },
+  "services": {
+    "title": "Hizmetlerimiz",
+    "items": [
+      {
+        "title": "Birebir Koçluk",
+        "description": "Kişisel hedeflerinize ulaşmanız için özel koçluk seansları."
+      },
+      {
+        "title": "Kurumsal Eğitim",
+        "description": "Ekibinizin verimliliğini artıran özel eğitim programları."
+      },
+      {
+        "title": "Online Program",
+        "description": "Esnek zamanlı, uzaktan eğitim ve koçluk imkanı."
+      },
+      {
+        "title": "Danışmanlık",
+        "description": "Stratejik planlama ve iş geliştirme danışmanlığı."
+      }
+    ]
+  },
+  "coaches": {
+    "title": "Koçlarımız",
+    "subtitle": "Alanında uzman, sertifikalı profesyonel koçlarımızla tanışın."
+  },
+  "process": {
+    "title": "Sürecimiz",
+    "steps": [
+      { "number": "01", "title": "Keşif", "description": "İhtiyaçlarınızı ve hedeflerinizi analiz ediyoruz." },
+      { "number": "02", "title": "Planlama", "description": "Size özel bir yol haritası oluşturuyoruz." },
+      { "number": "03", "title": "Uygulama", "description": "Koçluk seansları ve eğitimler başlıyor." },
+      { "number": "04", "title": "Değerlendirme", "description": "İlerlemenizi ölçüyor ve optimize ediyoruz." }
+    ]
+  },
+  "testimonials": {
+    "title": "Müşteri Yorumları",
+    "subtitle": "Başarı hikayelerimizden ilham alın."
+  },
+  "contact": {
+    "title": "Bizimle İletişime Geçin",
+    "subtitle": "Hedeflerinize ulaşmak için ilk adımı atın.",
+    "form": {
+      "name": "İsim",
+      "email": "E-posta",
+      "message": "Mesaj",
+      "submit": "Gönder",
+      "success": "Mesajınız başarıyla gönderildi!",
+      "error": "Bir hata oluştu. Lütfen tekrar deneyin."
+    }
+  },
+  "footer": {
+    "description": "Profesyonel gelişim, birebir koçluk ve kurumsal eğitimler.",
+    "rights": "Tüm hakları saklıdır."
+  },
+  "chat": {
+    "open": "Sohbeti aç",
+    "close": "Sohbeti kapat",
+    "placeholder": "Mesajınızı yazın...",
+    "initialMessage": "Merhaba! Size nasıl yardımcı olabilirim?",
+    "error": "Şu anda yardımcı olamıyorum, lütfen form üzerinden ulaşın.",
+    "characterCount": "{current} / {max}"
+  }
+}
